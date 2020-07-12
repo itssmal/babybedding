@@ -16,6 +16,8 @@ const adminPositionRoute = require('./routes/admin-routes/position')
 const keys = require('./config/keys')
 const app = express()
 
+mongoose.set('useFindAndModify', false)
+
 mongoose.connect(
     keys.mongoURI,
     {
