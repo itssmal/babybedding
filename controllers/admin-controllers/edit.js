@@ -3,7 +3,7 @@ const errorHandler = require('../../utils/errorhandler')
 
 module.exports.get = async function (req, res) {
     try {
-        const mainData = await MainData.findById('5f0b2b0882e523618f488a4e')
+        const mainData = await MainData.findById('5f0b3d6edef583e87542b873')
         res.status(200).json(mainData)
     } catch (e) {
         errorHandler(res, e)

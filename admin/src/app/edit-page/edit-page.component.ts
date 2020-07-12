@@ -54,7 +54,7 @@ export class EditPageComponent implements OnInit {
 
   onSubmit() {
     this.form.disable()
-    this.editService.update('5f0b2b0882e523618f488a4e', this.form.value.textLeft, this.form.value.textRight, this.image)
+    this.editService.update('5f0b3d6edef583e87542b873', this.form.value.textLeft, this.form.value.textRight, this.image)
       .subscribe(
         mainData => {
           this.mainData = mainData
