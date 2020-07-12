@@ -1,0 +1,121 @@
+<link rel="stylesheet" href="categories-form.component.css">
+
+<div class="breadcrumb m-0 shadow rounded-0 mb-4">
+  <a routerLink="/admin-categories" class="breadcrumb-item">Категорії</a>
+  <a href="#" class="breadcrumb-item">{{newMode ? 'Додавання' : 'Редагування'}}</a>
+</div>
+
+<div class="container">
+  <div class="card-img text-center">
+    <h1 class="mb-4">
+       {{newCatName == '' ? 'Нова Категорія' : newCatName }}
+    </h1>
+    <div class="border rounded m-auto shadow">
+      <i *ngIf="!imagePreview" class="material-icons img-load-icon">child_friendly</i>
+      <img *ngIf="imagePreview" class="uploading rounded" [src]="imagePreview" alt="Фото категорії">
+    </div>
+  </div>
+  <div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="m-3 text-center">
+        <input
+          class="form-control m-auto w-50 "
+          type="text"
+          placeholder="Назва категорії"
+          aria-label="Назва"
+          [ngClass]="{'invalid': form.get('name').invalid && form.get('name').touched }"
+          formControlName="name"
+          [(ngModel)]="newCatName"
+        >
+        <small
+          class="text-danger"
+          *ngIf="form.get('name').invalid && form.get('name').touched"
+        > Поле не може бути пустим
+        </small>
+      </div>
+<!--      <div class="input-field mt-5">-->
+<!--        <input-->
+<!--          id="cat_name"-->
+<!--          type="text"-->
+<!--          [ngClass]="{'invalid': form.get('name').invalid && form.get('name').touched }"-->
+<!--          formControlName="name"-->
+<!--          [(ngModel)]="newCatName"-->
+<!--        >-->
+<!--        <label for="cat_name">Назва Категорії</label>-->
+<!--        <small-->
+<!--          class="text-danger text-sm-left"-->
+<!--          *ngIf="form.get('name').invalid && form.get('name').touched"-->
+<!--        >Поле не може бути пустим</small>-->
+<!--      </div>-->
+      <div class="toolbar">
+        <button type="submit" class="toolbar-btn btn-submit" [disabled]="form.disabled || form.invalid">
+          <!--        // save btn-->
+          <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2 text-success" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+          </svg>
+        </button>
+        <input
+          type="file"
+          class="display-none"
+          (change)="onFileUpload($event)"
+          #input
+        >
+        <a type="button" class="toolbar-btn" (click)="triggerClick()">
+          <!--        // upload btn-->
+          <svg width="1.7em" height="1.7em" viewBox="0 0 16 16" class="bi bi-upload text-dark" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8zM5 4.854a.5.5 0 0 0 .707 0L8 2.56l2.293 2.293A.5.5 0 1 0 11 4.146L8.354 1.5a.5.5 0 0 0-.708 0L5 4.146a.5.5 0 0 0 0 .708z"/>
+            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 2z"/>
+          </svg>
+        </a>
+        <a type="button" class="toolbar-btn" (click)="deleteCategory()">
+          <!--        // delete btn-->
+          <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+            <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+          </svg>
+        </a>
+
+<!--      <button-->
+<!--        type="submit"-->
+<!--        class="m-3 btn"-->
+<!--        style="background-color: #AC0002"-->
+<!--        [disabled]="form.disabled || form.invalid"-->
+<!--      >-->
+<!--        <i class="material-icons pl-5 pr-5 pb-3 text-white">save</i>-->
+<!--      </button>-->
+<!--      <input-->
+<!--        type="file"-->
+<!--        class="display-none"-->
+<!--        (change)="onFileUpload($event)"-->
+<!--        #input-->
+<!--      >-->
+<!--      <button-->
+<!--        (click)="triggerClick()"-->
+<!--        type="button"-->
+<!--        class="m-3 btn"-->
+<!--        style="background-color: #AC0002"-->
+<!--        [disabled]="form.disabled"-->
+<!--      >-->
+<!--        <i class="material-icons pl-5 pr-5 pb-3 text-white">file_upload</i>-->
+<!--      </button>-->
+<!--      <button-->
+<!--        type="button"-->
+<!--        class="m-3 btn"-->
+<!--        style="background-color: #890000"-->
+<!--        (click)="deleteCategory()"-->
+<!--      >-->
+<!--        <i class="material-icons pl-5 pr-5 pb-3 text-white">delete</i>-->
+<!--      </button>-->
+    </div>
+    </form>
+
+  </div>
+</div>
+
+<app-cat-positions
+  *ngIf="category?._id"
+  [categoryId]="category._id"
+>
+</app-cat-positions>
+

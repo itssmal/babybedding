@@ -1,0 +1,55 @@
+.bg-custom {
+  background-color: #f44336;
+  color: #f2f2f2;
+}
+.card-body {
+  color: #f44336;
+}
+.border-bottom-custom {
+  border-color: #f44336;
+}
+.card {
+  margin: 0 auto;
+  transition: 500ms;
+}
+
+.toolbar-delete {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #f2f2f2;
+}
+
+.under-done {
+  position: relative;
+  z-index: 1;
+}
+
+.edit-btn {
+  color: #f44336;
+  transition: 500ms;
+}
+
+.edit-btn:hover {
+  transform: scale(1.4, 1.4);
+  transition: 200ms;
+  animation-iteration-count: 2;
+}
+.btn-hover:hover {
+  transform: scale(1.2, 1.2);
+  transition: 200ms;
+}
+.card-hover:hover {
+  transform: scale(1.05, 1.05);
+  transition: 200ms ease;
+}
+a {
+  text-decoration: none;
+  color: #f44336;
+  transition: 500ms;
+}
+a:hover {
+  transform: scale(1.2, 1.2);
+  transition: 200ms ease;
+}

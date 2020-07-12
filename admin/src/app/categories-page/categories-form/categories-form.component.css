@@ -1,0 +1,75 @@
+a {
+  text-decoration: none;
+}
+
+.breadcrumb {
+  background-color: #fafafa;
+}
+.breadcrumb-item {
+  color: #f44336;
+}
+a.breadcrumb-item:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.display-none {
+  display: none;
+}
+
+.bg-custom {
+  background-color: #f44336;
+  margin: 0;
+  color: #f2f2f2;
+}
+
+.btn-hover:hover {
+  transform: scale(1.1,1.1);
+  transition: 200ms ease-in-out;
+}
+.uploading {
+  max-width: 100%;
+}
+.border {
+  border-color: #f44336;
+  width: 10rem;
+  height: 10rem;
+}
+.img-load-icon {
+  margin: 4rem;
+}
+.text-custom {
+  color: #f44336;
+}
+.toolbar {
+  border: 1em black;
+  border-radius: 3em;
+  text-align: center;
+  padding: 1rem;
+  color: #f44336;
+  margin: auto;
+}
+.toolbar-btn {
+  margin: 0 4rem 0 4rem;
+  color: #f44336;
+}
+
+@media only screen and (max-width: 768px) {
+  .toolbar-btn {
+    margin: 0 2rem 0 2rem;
+    color: #f44336;
+  }
+}
+
+.btn-submit {
+  border: none;
+  background-color: transparent;
+}
+
+button, a {
+  transition: 500ms;
+}
+button:hover, a:hover {
+  transform: scale(1.4, 1.4);
+  transition: 200ms ease;
+}

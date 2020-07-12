@@ -1,0 +1,33 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row border rounded shadow mx-1 my-3">
+      <h3 class="m-3">Фон</h3>
+      <div class="col border d-inline-flex m-3">
+        <img alt="" class="m-3 w-50 border" [src]="imagePreview">
+        <input
+          type="file"
+          class="display-none"
+          (change)="onFileUpload($event)"
+          #input
+        >
+        <button type="button" class="btn btn-success m-auto" (click)="triggerClick()" style="height: 40px">Завантажити нове фото</button>
+      </div>
+    </div>
+    <div class="row border rounded shadow mx-1 my-3">
+      <h3 class="m-3">Доставка</h3>
+      <div class="col border d-inline-flex m-3">
+        <span class="m-auto text-center">текст зліва</span>
+        <textarea class="form-control w-50 m-3" aria-label="With textarea" formControlName="textLeft"></textarea>
+<!--        <button class="btn btn-success m-3">Завантажити новий текст</button>-->
+      </div>
+      <div class="col border d-inline-flex m-3">
+        <span class="m-auto text-center">текст справа</span>
+        <textarea class="form-control w-50 m-3" aria-label="With textarea" formControlName="textRight"></textarea>
+<!--        <button class="btn btn-success m-3">Завантажити новий текст</button>-->
+      </div>
+    </div>
+    <div class="text-center m-5">
+      <button type="submit" class="btn btn-success">Зберегти</button>
+    </div>
+  </form>
+</div>

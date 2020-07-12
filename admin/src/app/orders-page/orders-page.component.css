@@ -1,0 +1,38 @@
+th {
+  border-top: 0px;
+}
+
+.toolbar-delete {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #f2f2f2;
+}
+
+.under-done {
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+  color: #f44336;
+  transition: 500ms;
+}
+a:hover {
+  transform: scale(1.2, 1.2);
+  transition: 200ms ease;
+}
+.table-responsive {
+  border: 1em;
+  border-radius: 2em;
+}
+.bg-custom {
+  background-color: #f44336;
+  color: #f2f2f2;
+}
+.done {
+  color: #28a745;
+  text-decoration: line-through;
+}
