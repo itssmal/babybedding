@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const passport = require('passport')
+const path = require('path')
 
 const categoryRoute = require('./routes/client-routes/category')
 const orderRoute = require('./routes/client-routes/order')
