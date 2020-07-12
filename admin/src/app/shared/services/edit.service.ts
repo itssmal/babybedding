@@ -13,8 +13,8 @@ export class EditService {
 
   }
 
-  get(): Observable<MainData> {
-    return this.http.get<MainData>('/api/edit')
+  get(): Observable<MainData[]> {
+    return this.http.get<MainData[]>('/api/edit')
   }
 
   create(textLeft: string, textRight: string, image?: File): Observable<MainData> {

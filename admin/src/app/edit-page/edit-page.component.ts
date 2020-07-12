@@ -17,6 +17,7 @@ export class EditPageComponent implements OnInit {
   form: FormGroup
   image: File
   mainData: MainData
+  maindatas: MainData[]
   imagePreview: any
 
   constructor(private route: ActivatedRoute,
@@ -36,12 +37,13 @@ export class EditPageComponent implements OnInit {
       .subscribe(
         mainData => {
           if(mainData) {
+            this.maindatas = mainData
             this.mainData = mainData[0]
             this.form.patchValue({
-              textLeft: mainData.textLeft,
-              textRight: mainData.textRight
+              textLeft: mainData[0].textLeft,
+              textRight: mainData[0].textRight
             })
-            this.imagePreview = mainData.mainImageSrc
+            this.imagePreview = mainData[0].mainImageSrc
             MaterialService.updateTextInputs()
           }
         },
@@ -54,7 +56,7 @@ export class EditPageComponent implements OnInit {
 
   onSubmit() {
     this.form.disable()
-    this.editService.update('5f0b3d6edef583e87542b873', this.form.value.textLeft, this.form.value.textRight, this.image)
+    this.editService.update(this.mainData._id, this.form.value.textLeft, this.form.value.textRight, this.image)
       .subscribe(
         mainData => {
           this.mainData = mainData

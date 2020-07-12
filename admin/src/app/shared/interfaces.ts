@@ -40,5 +40,6 @@ export interface Order {
 export interface MainData {
   textLeft: string,
   textRight: string,
-  mainImageSrc?: string
+  mainImageSrc?: string,
+  _id?: string
 }
