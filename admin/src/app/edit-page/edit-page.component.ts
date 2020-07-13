@@ -48,7 +48,7 @@ export class EditPageComponent implements OnInit {
           }
         },
         error => {
-          window.alert(error.error.message)
+         console.log(error)
         }
       )
 
