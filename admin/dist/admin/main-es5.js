@@ -288,11 +288,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _positions_page_positions_form_positions_form_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./positions-page/positions-form/positions-form.component */
     "./src/app/positions-page/positions-form/positions-form.component.ts");
+    /* harmony import */
+
+
+    var _edit_page_edit_page_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./edit-page/edit-page.component */
+    "./src/app/edit-page/edit-page.component.ts");
 
     var routes = [{
       path: 'login',
       component: _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_2__["LoginPageComponent"]
-    }, {
+    }, // {path: 'register', component: LoginPageComponent},
+    {
       path: '',
       component: _shared_layouts_admin_nav_admin_nav_component__WEBPACK_IMPORTED_MODULE_5__["AdminNavComponent"],
       canActivate: [_shared_classes_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
@@ -301,36 +308,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         component: _categories_page_categories_page_component__WEBPACK_IMPORTED_MODULE_7__["CategoriesPageComponent"]
       }, {
         path: 'admin-positions',
-        component: _positions_page_positions_page_component__WEBPACK_IMPORTED_MODULE_6__["PositionsPageComponent"],
-        canActivate: [_shared_classes_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+        component: _positions_page_positions_page_component__WEBPACK_IMPORTED_MODULE_6__["PositionsPageComponent"]
       }, {
         path: 'admin-orders',
-        component: _orders_page_orders_page_component__WEBPACK_IMPORTED_MODULE_4__["OrdersPageComponent"],
-        canActivate: [_shared_classes_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+        component: _orders_page_orders_page_component__WEBPACK_IMPORTED_MODULE_4__["OrdersPageComponent"]
+      }, {
+        path: 'edit',
+        component: _edit_page_edit_page_component__WEBPACK_IMPORTED_MODULE_10__["EditPageComponent"]
       }, {
         path: 'admin-categories/new',
-        component: _categories_page_categories_form_categories_form_component__WEBPACK_IMPORTED_MODULE_8__["CategoriesFormComponent"],
-        canActivate: [_shared_classes_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+        component: _categories_page_categories_form_categories_form_component__WEBPACK_IMPORTED_MODULE_8__["CategoriesFormComponent"]
       }, {
         path: 'admin-categories/:id',
-        component: _categories_page_categories_form_categories_form_component__WEBPACK_IMPORTED_MODULE_8__["CategoriesFormComponent"],
-        canActivate: [_shared_classes_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+        component: _categories_page_categories_form_categories_form_component__WEBPACK_IMPORTED_MODULE_8__["CategoriesFormComponent"]
       }, {
         path: 'admin-positions/new',
-        component: _positions_page_positions_form_positions_form_component__WEBPACK_IMPORTED_MODULE_9__["PositionsFormComponent"],
-        canActivate: [_shared_classes_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+        component: _positions_page_positions_form_positions_form_component__WEBPACK_IMPORTED_MODULE_9__["PositionsFormComponent"]
       }, {
         path: 'admin-positions/edit/:id',
-        component: _positions_page_positions_form_positions_form_component__WEBPACK_IMPORTED_MODULE_9__["PositionsFormComponent"],
-        canActivate: [_shared_classes_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+        component: _positions_page_positions_form_positions_form_component__WEBPACK_IMPORTED_MODULE_9__["PositionsFormComponent"]
       }, {
         path: 'admin-positions/cat/:id',
-        component: _positions_page_positions_page_component__WEBPACK_IMPORTED_MODULE_6__["PositionsPageComponent"],
-        canActivate: [_shared_classes_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+        component: _positions_page_positions_page_component__WEBPACK_IMPORTED_MODULE_6__["PositionsPageComponent"]
       }, {
         path: 'admin-positions/:id',
-        component: _positions_page_positions_page_component__WEBPACK_IMPORTED_MODULE_6__["PositionsPageComponent"],
-        canActivate: [_shared_classes_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+        component: _positions_page_positions_page_component__WEBPACK_IMPORTED_MODULE_6__["PositionsPageComponent"]
       }],
       runGuardsAndResolvers: "always"
     }];
@@ -640,6 +642,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _shared_pipes_filter_pipe__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
     /*! ./shared/pipes/filter.pipe */
     "./src/app/shared/pipes/filter.pipe.ts");
+    /* harmony import */
+
+
+    var _edit_page_edit_page_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
+    /*! ./edit-page/edit-page.component */
+    "./src/app/edit-page/edit-page.component.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -663,7 +671,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, {
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"], _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_3__["LoginPageComponent"], _admin_main_admin_main_component__WEBPACK_IMPORTED_MODULE_8__["AdminMainComponent"], _orders_page_orders_page_component__WEBPACK_IMPORTED_MODULE_9__["OrdersPageComponent"], _shared_layouts_admin_nav_admin_nav_component__WEBPACK_IMPORTED_MODULE_11__["AdminNavComponent"], _positions_page_positions_page_component__WEBPACK_IMPORTED_MODULE_18__["PositionsPageComponent"], _categories_page_categories_page_component__WEBPACK_IMPORTED_MODULE_19__["CategoriesPageComponent"], _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_20__["LoaderComponent"], _categories_page_categories_form_categories_form_component__WEBPACK_IMPORTED_MODULE_21__["CategoriesFormComponent"], _categories_page_categories_form_cat_positions_cat_positions_component__WEBPACK_IMPORTED_MODULE_22__["CatPositionsComponent"], _positions_page_positions_form_positions_form_component__WEBPACK_IMPORTED_MODULE_23__["PositionsFormComponent"], _shared_pipes_filter_pipe__WEBPACK_IMPORTED_MODULE_24__["FilterPipe"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"], _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_3__["LoginPageComponent"], _admin_main_admin_main_component__WEBPACK_IMPORTED_MODULE_8__["AdminMainComponent"], _orders_page_orders_page_component__WEBPACK_IMPORTED_MODULE_9__["OrdersPageComponent"], _shared_layouts_admin_nav_admin_nav_component__WEBPACK_IMPORTED_MODULE_11__["AdminNavComponent"], _positions_page_positions_page_component__WEBPACK_IMPORTED_MODULE_18__["PositionsPageComponent"], _categories_page_categories_page_component__WEBPACK_IMPORTED_MODULE_19__["CategoriesPageComponent"], _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_20__["LoaderComponent"], _categories_page_categories_form_categories_form_component__WEBPACK_IMPORTED_MODULE_21__["CategoriesFormComponent"], _categories_page_categories_form_cat_positions_cat_positions_component__WEBPACK_IMPORTED_MODULE_22__["CatPositionsComponent"], _positions_page_positions_form_positions_form_component__WEBPACK_IMPORTED_MODULE_23__["PositionsFormComponent"], _shared_pipes_filter_pipe__WEBPACK_IMPORTED_MODULE_24__["FilterPipe"], _edit_page_edit_page_component__WEBPACK_IMPORTED_MODULE_25__["EditPageComponent"]],
         imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"], _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_12__["LayoutModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_13__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_14__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_15__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_16__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_17__["MatListModule"]]
       });
     })();
@@ -674,7 +682,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
-          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"], _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_3__["LoginPageComponent"], _admin_main_admin_main_component__WEBPACK_IMPORTED_MODULE_8__["AdminMainComponent"], _orders_page_orders_page_component__WEBPACK_IMPORTED_MODULE_9__["OrdersPageComponent"], _shared_layouts_admin_nav_admin_nav_component__WEBPACK_IMPORTED_MODULE_11__["AdminNavComponent"], _positions_page_positions_page_component__WEBPACK_IMPORTED_MODULE_18__["PositionsPageComponent"], _categories_page_categories_page_component__WEBPACK_IMPORTED_MODULE_19__["CategoriesPageComponent"], _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_20__["LoaderComponent"], _categories_page_categories_form_categories_form_component__WEBPACK_IMPORTED_MODULE_21__["CategoriesFormComponent"], _categories_page_categories_form_cat_positions_cat_positions_component__WEBPACK_IMPORTED_MODULE_22__["CatPositionsComponent"], _positions_page_positions_form_positions_form_component__WEBPACK_IMPORTED_MODULE_23__["PositionsFormComponent"], _shared_pipes_filter_pipe__WEBPACK_IMPORTED_MODULE_24__["FilterPipe"]],
+          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"], _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_3__["LoginPageComponent"], _admin_main_admin_main_component__WEBPACK_IMPORTED_MODULE_8__["AdminMainComponent"], _orders_page_orders_page_component__WEBPACK_IMPORTED_MODULE_9__["OrdersPageComponent"], _shared_layouts_admin_nav_admin_nav_component__WEBPACK_IMPORTED_MODULE_11__["AdminNavComponent"], _positions_page_positions_page_component__WEBPACK_IMPORTED_MODULE_18__["PositionsPageComponent"], _categories_page_categories_page_component__WEBPACK_IMPORTED_MODULE_19__["CategoriesPageComponent"], _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_20__["LoaderComponent"], _categories_page_categories_form_categories_form_component__WEBPACK_IMPORTED_MODULE_21__["CategoriesFormComponent"], _categories_page_categories_form_cat_positions_cat_positions_component__WEBPACK_IMPORTED_MODULE_22__["CatPositionsComponent"], _positions_page_positions_form_positions_form_component__WEBPACK_IMPORTED_MODULE_23__["PositionsFormComponent"], _shared_pipes_filter_pipe__WEBPACK_IMPORTED_MODULE_24__["FilterPipe"], _edit_page_edit_page_component__WEBPACK_IMPORTED_MODULE_25__["EditPageComponent"]],
           imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"], _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_12__["LayoutModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_13__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_14__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_15__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_16__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_17__["MatListModule"]],
           providers: [{
             provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HTTP_INTERCEPTORS"],
@@ -1338,7 +1346,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function deleteCategory() {
           var _this6 = this;
 
-          var decision = window.confirm('Are u sure?');
+          var decision = window.confirm('Ви дійсно хочете видалити цю категорію?');
 
           if (decision) {
             this.categoriesService.remove(this.category._id).subscribe(function (res) {
@@ -1857,7 +1865,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function categoryDel(id) {
           var _this7 = this;
 
-          var decision = window.confirm('Ви дійсно хочете видалити позицію?');
+          var decision = window.confirm('Ви дійсно хочете видалити категорію?');
 
           if (decision) {
             this.categoriesService.remove(id).subscribe(function (res) {
@@ -1869,6 +1877,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
               _this7.categories$ = _this7.categoriesService.fetch();
             });
+          } else {
+            this.router.navigate(['/admin-categories']);
           }
         }
       }]);
@@ -2016,6 +2026,294 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         floatingRef: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
           args: ['floatingBtn']
+        }]
+      });
+    })();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/edit-page/edit-page.component.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/edit-page/edit-page.component.ts ***!
+    \**************************************************/
+
+  /*! exports provided: EditPageComponent */
+
+  /***/
+  function srcAppEditPageEditPageComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "EditPageComponent", function () {
+      return EditPageComponent;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _shared_services_material_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../shared/services/material.service */
+    "./src/app/shared/services/material.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _shared_services_edit_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../shared/services/edit.service */
+    "./src/app/shared/services/edit.service.ts");
+
+    var _c0 = ["input"];
+
+    var EditPageComponent = /*#__PURE__*/function () {
+      function EditPageComponent(route, editService, router) {
+        _classCallCheck(this, EditPageComponent);
+
+        this.route = route;
+        this.editService = editService;
+        this.router = router;
+      }
+
+      _createClass(EditPageComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this8 = this;
+
+          this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            textLeft: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
+            textRight: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]()
+          });
+          this.editService.get().subscribe(function (mainData) {
+            if (mainData) {
+              _this8.maindatas = mainData;
+              _this8.mainData = mainData[0];
+
+              _this8.form.patchValue({
+                textLeft: mainData[0].textLeft,
+                textRight: mainData[0].textRight
+              });
+
+              _this8.imagePreview = mainData[0].mainImageSrc;
+
+              _shared_services_material_service__WEBPACK_IMPORTED_MODULE_2__["MaterialService"].updateTextInputs();
+            }
+          }, function (error) {
+            window.alert(error.error.message);
+          });
+        }
+      }, {
+        key: "onSubmit",
+        value: function onSubmit() {
+          var _this9 = this;
+
+          this.form.disable();
+          this.editService.update(this.mainData._id, this.form.value.textLeft, this.form.value.textRight, this.image).subscribe(function (mainData) {
+            _this9.mainData = mainData;
+            window.alert('Зміни збережені');
+
+            _this9.form.enable();
+          }, function (error) {
+            window.alert(error.error.message);
+
+            _this9.form.enable();
+          }, function () {
+            _this9.router.navigate(['/edit']);
+          });
+        }
+      }, {
+        key: "onFileUpload",
+        value: function onFileUpload(event) {
+          var _this10 = this;
+
+          var file = event.target.files[0];
+          this.image = file;
+          var reader = new FileReader();
+
+          reader.onload = function () {
+            _this10.imagePreview = reader.result;
+          };
+
+          reader.readAsDataURL(file);
+        }
+      }, {
+        key: "triggerClick",
+        value: function triggerClick() {
+          this.inputRef.nativeElement.click();
+        }
+      }]);
+
+      return EditPageComponent;
+    }();
+
+    EditPageComponent.ɵfac = function EditPageComponent_Factory(t) {
+      return new (t || EditPageComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_edit_service__WEBPACK_IMPORTED_MODULE_4__["EditService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]));
+    };
+
+    EditPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      type: EditPageComponent,
+      selectors: [["app-edit-page"]],
+      viewQuery: function EditPageComponent_Query(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c0, true);
+        }
+
+        if (rf & 2) {
+          var _t;
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.inputRef = _t.first);
+        }
+      },
+      decls: 25,
+      vars: 2,
+      consts: [[1, "container"], [3, "formGroup", "ngSubmit"], [1, "row", "border", "rounded", "shadow", "mx-1", "my-3"], [1, "m-3"], [1, "col", "border", "d-inline-flex", "m-3"], ["alt", "", 1, "m-3", "w-50", "border", "h-auto", 3, "src"], ["type", "file", 1, "display-none", 3, "change"], ["input", ""], ["type", "button", 1, "btn", "btn-success", "m-auto", 2, "height", "40px", 3, "click"], [1, "m-auto", "text-center"], ["aria-label", "With textarea", "formControlName", "textLeft", 1, "form-control", "w-50", "m-3"], ["aria-label", "With textarea", "formControlName", "textRight", 1, "form-control", "w-50", "m-3"], [1, "text-center", "m-5"], ["type", "submit", 1, "btn", "btn-success"]],
+      template: function EditPageComponent_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "form", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function EditPageComponent_Template_form_ngSubmit_1_listener() {
+            return ctx.onSubmit();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "h3", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "\u0424\u043E\u043D");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "img", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "input", 6, 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function EditPageComponent_Template_input_change_7_listener($event) {
+            return ctx.onFileUpload($event);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function EditPageComponent_Template_button_click_9_listener() {
+            return ctx.triggerClick();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "\u0417\u0430\u0432\u0430\u043D\u0442\u0430\u0436\u0438\u0442\u0438 \u043D\u043E\u0432\u0435 \u0444\u043E\u0442\u043E");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "h3", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "\u0414\u043E\u0441\u0442\u0430\u0432\u043A\u0430");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "span", 9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "\u0442\u0435\u043A\u0441\u0442 \u0437\u043B\u0456\u0432\u0430");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](17, "textarea", 10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "span", 9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "\u0442\u0435\u043A\u0441\u0442 \u0441\u043F\u0440\u0430\u0432\u0430");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](21, "textarea", 11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "button", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.form);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.imagePreview, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+        }
+      },
+      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"]],
+      styles: [".display-none[_ngcontent-%COMP%] {\n  display: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZWRpdC1wYWdlL2VkaXQtcGFnZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtBQUNmIiwiZmlsZSI6InNyYy9hcHAvZWRpdC1wYWdlL2VkaXQtcGFnZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmRpc3BsYXktbm9uZSB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG4iXX0= */"]
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](EditPageComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+          selector: 'app-edit-page',
+          templateUrl: './edit-page.component.html',
+          styleUrls: ['./edit-page.component.css']
+        }]
+      }], function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
+        }, {
+          type: _shared_services_edit_service__WEBPACK_IMPORTED_MODULE_4__["EditService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+        }];
+      }, {
+        inputRef: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
+          args: ['input']
         }]
       });
     })();
@@ -2181,7 +2479,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(LoginPageComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this8 = this;
+          var _this11 = this;
 
           this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             email: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]),
@@ -2189,9 +2487,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           this.route.queryParams.subscribe(function (params) {
             if (params['accessDenied']) {
-              _this8.error = 'Авторизуйтесь в системі!';
+              _this11.error = 'Авторизуйтесь в системі!';
             } else if (params['sessionFailed']) {
-              _this8.error = 'Авторизуйтесь в системі!';
+              _this11.error = 'Авторизуйтесь в системі!';
             }
           });
         }
@@ -2205,15 +2503,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this9 = this;
+          var _this12 = this;
 
           this.form.disable();
           this.aSub = this.auth.login(this.form.value).subscribe(function () {
-            return _this9.router.navigate(['/admin-orders']);
+            return _this12.router.navigate(['/admin-orders']);
           }, function (error1) {
-            _this9.error = error1.error.message;
+            _this12.error = error1.error.message;
 
-            _this9.form.enable();
+            _this12.form.enable();
           });
         }
       }]);
@@ -2876,41 +3174,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onDone",
         value: function onDone(id) {
-          var _this10 = this;
+          var _this13 = this;
 
           this.done = true;
           this.ordersService.update(id, {
             done: this.done
           }).subscribe(function (res) {
-            _this10.orders$ = _this10.ordersService.fetch();
+            _this13.orders$ = _this13.ordersService.fetch();
             console.log(res);
           }, function (error1) {
             return window.alert(error1.error.message);
           }, function () {
-            _this10.ordersService.fetch();
+            _this13.ordersService.fetch();
           });
         }
       }, {
         key: "onUndone",
         value: function onUndone(id) {
-          var _this11 = this;
+          var _this14 = this;
 
           this.done = false;
           this.ordersService.update(id, {
             done: this.done
           }).subscribe(function (res) {
-            _this11.orders$ = _this11.ordersService.fetch();
+            _this14.orders$ = _this14.ordersService.fetch();
             console.log(res);
           }, function (error1) {
             return window.alert(error1.error.message);
           }, function () {
-            _this11.ordersService.fetch();
+            _this14.ordersService.fetch();
           });
         }
       }, {
         key: "onDelete",
         value: function onDelete(id) {
-          var _this12 = this;
+          var _this15 = this;
 
           var decision = window.confirm('Ви точно хочете видалити замовлення?');
 
@@ -2919,13 +3217,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               // const test = this.testOrders.filter(i => i._id !== id)
               // this.testOrders = [...test]
               // console.log(test)
-              _this12.ordersService.fetch();
+              _this15.ordersService.fetch();
 
               window.alert(res.message);
             }, function (error1) {
               return window.alert(error1.error.message);
             }, function () {
-              _this12.ordersService.fetch();
+              _this15.ordersService.fetch();
             });
           }
         }
@@ -3414,7 +3712,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(PositionsFormComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this13 = this;
+          var _this16 = this;
 
           this.categories$ = this.categoriesService.fetch();
           this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
@@ -3425,29 +3723,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           this.route.params.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["switchMap"])(function (params) {
             if (params['id']) {
-              _this13.actCat = params['id'];
-              _this13.newMode = false;
-              return _this13.positionsService.fetchOne(params['id']);
+              _this16.actCat = params['id'];
+              _this16.newMode = false;
+              return _this16.positionsService.fetchOne(params['id']);
             }
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null);
           })).subscribe(function (position) {
             if (position) {
-              _this13.position = position;
+              _this16.position = position;
 
-              _this13.form.patchValue({
+              _this16.form.patchValue({
                 name: position.name,
                 description: position.description,
                 cost: position.cost,
                 categoryId: position.categoryId
               });
 
-              _this13.imagePreview = position.imageSrc;
+              _this16.imagePreview = position.imageSrc;
             }
 
-            _this13.form.enable();
+            _this16.form.enable();
           }, function (error) {
-            _this13.error = error;
+            _this16.error = error;
           });
         }
       }, {
@@ -3458,14 +3756,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onFileUpload",
         value: function onFileUpload(event) {
-          var _this14 = this;
+          var _this17 = this;
 
           var file = event.target.files[0];
           this.image = file;
           var reader = new FileReader();
 
           reader.onload = function () {
-            _this14.imagePreview = reader.result;
+            _this17.imagePreview = reader.result;
           };
 
           reader.readAsDataURL(file);
@@ -3473,7 +3771,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this15 = this;
+          var _this18 = this;
 
           var obs$;
           this.form.disable();
@@ -3485,26 +3783,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           obs$.subscribe(function (position) {
-            _this15.position = position;
+            _this18.position = position;
             window.alert('Зміни збережені');
 
-            _this15.form.enable();
+            _this18.form.enable();
           }, function (error) {
             window.alert(error.error.message);
 
-            _this15.form.enable();
+            _this18.form.enable();
           }, function () {
-            if (_this15.position.categoryId) {
-              _this15.router.navigate(["/admin-categories/".concat(_this15.position.categoryId)]);
+            if (_this18.position.categoryId) {
+              _this18.router.navigate(["/admin-categories/".concat(_this18.position.categoryId)]);
             }
 
-            _this15.router.navigate(["/admin-positions"]);
+            _this18.router.navigate(["/admin-positions"]);
           });
         }
       }, {
         key: "deletePosition",
         value: function deletePosition() {
-          var _this16 = this;
+          var _this19 = this;
 
           var decision = window.confirm('Ви дійсно хочете видалити позицію?');
 
@@ -3514,7 +3812,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }, function (error1) {
               return window.alert(error1);
             }, function () {
-              _this16.router.navigate(['/admin-positions']);
+              _this19.router.navigate(['/admin-positions']);
             });
           }
         }
@@ -3942,7 +4240,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "positionDel",
         value: function positionDel(id) {
-          var _this17 = this;
+          var _this20 = this;
 
           var decision = window.confirm('Ви точно хочете видалити позицію?');
 
@@ -3952,7 +4250,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }, function (error1) {
               return window.alert(error1.error.message);
             }, function () {
-              _this17.positions$ = _this17.positionsService.fetchAll();
+              _this20.positions$ = _this20.positionsService.fetchAll();
             });
           }
         }
@@ -4276,7 +4574,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(TokenInterceptor, [{
         key: "intercept",
         value: function intercept(req, next) {
-          var _this18 = this;
+          var _this21 = this;
 
           if (this.auth.isAuthenticated()) {
             req = req.clone({
@@ -4287,7 +4585,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           return next.handle(req).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            return _this18.handleAuthError(error);
+            return _this21.handleAuthError(error);
           }));
         }
       }, {
@@ -4576,6 +4874,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }, {
           url: '/admin-orders',
           name: 'Замовлення'
+        }, {
+          url: '/edit',
+          name: 'Редагувати'
         }];
         this.isHandset$ = this.breakpointObserver.observe(_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_1__["Breakpoints"].Handset).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (result) {
           return result.matches;
@@ -4848,13 +5149,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AuthService, [{
         key: "login",
         value: function login(user) {
-          var _this19 = this;
+          var _this22 = this;
 
           return this.http.post('/api/auth/login', user).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(function (_ref) {
             var token = _ref.token;
             localStorage.setItem('auth-token', token);
 
-            _this19.setToken(token);
+            _this22.setToken(token);
           }));
         }
       }, {
@@ -5001,6 +5302,108 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     (function () {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CategoriesService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+          providedIn: 'root'
+        }]
+      }], function () {
+        return [{
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]
+        }];
+      }, null);
+    })();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/shared/services/edit.service.ts":
+  /*!*************************************************!*\
+    !*** ./src/app/shared/services/edit.service.ts ***!
+    \*************************************************/
+
+  /*! exports provided: EditService */
+
+  /***/
+  function srcAppSharedServicesEditServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "EditService", function () {
+      return EditService;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+
+    var EditService = /*#__PURE__*/function () {
+      function EditService(http) {
+        _classCallCheck(this, EditService);
+
+        this.http = http;
+      }
+
+      _createClass(EditService, [{
+        key: "get",
+        value: function get() {
+          return this.http.get('/api/edit');
+        }
+      }, {
+        key: "create",
+        value: function create(textLeft, textRight, image) {
+          var formData = new FormData();
+
+          if (image) {
+            formData.append('mainImageSrc', image, image.name);
+          }
+
+          formData.append('textLeft', textLeft);
+          formData.append('textRight', textRight);
+          return this.http.post('/api/edit', formData);
+        }
+      }, {
+        key: "update",
+        value: function update(id, textLeft, textRight, image) {
+          var formData = new FormData();
+
+          if (image) {
+            formData.append('mainImageSrc', image, image.name);
+          }
+
+          formData.append('textLeft', textLeft);
+          formData.append('textRight', textRight);
+          return this.http.patch("/api/edit/".concat(id), formData);
+        }
+      }]);
+
+      return EditService;
+    }();
+
+    EditService.ɵfac = function EditService_Factory(t) {
+      return new (t || EditService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));
+    };
+
+    EditService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+      token: EditService,
+      factory: EditService.ɵfac,
+      providedIn: 'root'
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](EditService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
           providedIn: 'root'
@@ -5343,13 +5746,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _Users_itssmal_Desktop_babybedding_admin_node_modules_materialize_css_dist_js_materialize_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./node_modules/materialize-css/dist/js/materialize.js */
+    var _node_modules_materialize_css_dist_js_materialize_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../node_modules/materialize-css/dist/js/materialize.js */
     "./node_modules/materialize-css/dist/js/materialize.js");
     /* harmony import */
 
 
-    var _Users_itssmal_Desktop_babybedding_admin_node_modules_materialize_css_dist_js_materialize_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Users_itssmal_Desktop_babybedding_admin_node_modules_materialize_css_dist_js_materialize_js__WEBPACK_IMPORTED_MODULE_2__);
+    var _node_modules_materialize_css_dist_js_materialize_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_materialize_css_dist_js_materialize_js__WEBPACK_IMPORTED_MODULE_2__);
     /* harmony import */
 
 
@@ -5385,7 +5788,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   /***/
   function _(module, exports, __webpack_require__) {
     module.exports = __webpack_require__(
-    /*! /Users/itssmal/Desktop/babybedding/admin/src/main.ts */
+    /*! /Users/itssmal/Downloads/babybedding-full-edc7a4f9467decf0f0d7ebc74ad5d65c104b4ae6/admin/src/main.ts */
     "./src/main.ts");
     /***/
   }
