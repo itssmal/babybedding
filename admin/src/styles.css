@@ -21,3 +21,6 @@ ul.toolbar-mar {
     margin-left: 0;
   }
 }
+[type=button] {
+  -webkit-appearance: none !important;
+}

@@ -50,6 +50,9 @@ hr {
 .text-decoration-none {
   color: black;
 }
+[type=button] {
+  -webkit-appearance: none !important;
+}
 .m-center {
   margin: 0 auto;
 }
@@ -60,11 +63,13 @@ hr {
   display: inline;
   align-items: center;
   color: #000000;
+}
+.soc-medias i{
   transition: 300ms;
 }
-.soc-medias a:hover {
+.soc-medias i:hover {
   transform: scale(1.1);
-  font-size: 3.3em;
+  font-size: 1.1em;
   transition: 500ms;
 }
 iframe {
@@ -75,22 +80,18 @@ iframe {
 @media only screen and (max-width: 768px) {
   .soc-medias a{
     text-decoration: none;
-    font-size: 2.2em;
-    margin: 1em;
+    font-size: 2em;
+    margin: 0.5em;
     display: inline;
     align-items: center;
     color: #000000;
     transition: 300ms;
-  }
-  .soc-medias a:hover {
-    font-size: 3.2em;
   }
   iframe {
     width: 350px;
     height: 250px;
   }
 }
-
 .fa-instagram:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(#af22d3), to(rgba(252, 56, 7, 0.89)));
   -webkit-background-clip: text;
