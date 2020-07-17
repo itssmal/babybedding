@@ -1,0 +1,39 @@
+<div class="main-header-div vh-100 text-left" [style.background-image]="'url(' + mainData.mainImageSrc + ')'">
+  <h1 class="main-header">Baby Bedding</h1>
+</div>
+
+<app-about-us></app-about-us>
+
+<div class="shadow-text">
+  <div class="col-md-12 heading-section text-center my-5">
+    <a id="contacts"></a>
+    <h1 class="big">Популярні</h1>
+    <h2 class="mb-4">Популярні</h2>
+  </div>
+</div>
+
+<div class="container mb-5" *ngIf="categories$ | async as categories">
+  <div class="row category-row" >
+    <span
+      class="text-danger m-auto"
+      *ngIf="categories.length === 0"
+    >Категорій немає
+    </span>
+    <div class="col mb-5 m-auto" aTilt *ngFor="let category of categories | slice:0:3">
+      <a (click)="goToPos(category._id, category.name)" class="text-decoration-none text-secondary">
+        <div class="card shadow border-0 rounded m-auto" style="width: 18rem">
+          <div class="category-img">
+            <img src="{{category.imageSrc}}" alt="" style="width: 100%" class="rounded-top">
+          </div>
+          <div class="card-body">
+            <h3 class="card-text font-weight-light">{{category.name}}</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<app-delivery class="my-5"></app-delivery>
+<app-contacts class="mt-5"></app-contacts>
+

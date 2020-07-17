@@ -1,0 +1,203 @@
+
+<div class="shadow-text">
+  <div class="col-md-12 heading-section text-center my-5">
+    <a id="contacts"></a>
+    <h1 class="big">Кошик</h1>
+    <h2 class="mb-4">Кошик</h2>
+  </div>
+</div>
+
+<div class="container mb-5">
+      <div class="row" *ngIf="positions.length !== 0; else empty">
+        <div class="col-md-12 w-100" *ngFor="let position of positions; let i = index">
+          <div *ngIf="positions[i]">
+          <div class="row border d-mob-inl">
+            <div class="col-1 text-center m-auto">
+              <a (click)="onRemove(i)" style="cursor: pointer">
+                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x text-danger" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+                  <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+                </svg>
+              </a>
+            </div>
+            <div class="col m-auto p-0">
+              <img [src]="position.imageSrc" alt="" width="150px" class="my-2">
+            </div>
+            <div class="col text-center m-auto">
+              <h5>{{position.name | titlecase}}</h5>
+            </div>
+            <div class="col text-center m-auto">
+              <h5>{{position.cost | currency:'UAH'}}</h5>
+            </div>
+            <div class="col text-center m-auto">
+              <input class="form-control" type="number" [value]="position.quantity" max="5" [(ngModel)]="position.quantity" (change)="calcSum(i, $event.target.value)">
+            </div>
+            <div class="col text-center m-auto position-sum">
+              <h5>{{position.cost * position.quantity | currency:'UAH'}}</h5>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    <ng-template #empty class="text-center">
+      <h1 class="m-auto my-5 text-center">Кошик пустий</h1>
+    </ng-template>
+  <div class="row" *ngIf="positions.length !== 0">
+    <div class="col-md-12 text-center border d-flex flex-column" id="order-confirm">
+      <ul class="list-unstyled text-left text-secondary mt-3">
+        <li *ngFor="let position of positions">
+          <span *ngIf="position.quantity !== 0">
+            {{position.name | titlecase}} : {{position.cost  * position.quantity | currency:'UAH'}}
+          </span>
+        </li>
+      </ul>
+      <h2 class="font-weight-bold m-3">Сума: {{sum | currency:'UAH'}}</h2>
+      <a type="button" class="btn btn-light m-auto mb-3" (click)="open(content)">Замовити</a>
+    </div>
+
+  </div>
+
+<ng-template #content let-modal>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Особисті Дані Для Відправки</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Прізвище, Ім'я</label>
+              <input
+                type="text"
+                class="form-control"
+                id="recipient-name"
+                [ngClass]="{'invalid-area': form.get('fullname').invalid && form.get('fullname').touched }"
+                formControlName="fullname"
+              >
+              <div *ngIf="form.get('fullname').invalid && form.get('fullname').touched">
+                <small
+                  class="text-danger text-sm-left"
+                  *ngIf="form.get('fullname').errors['required']"
+                >Поле не може бути пустим</small>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="col-form-label">Email:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                formControlName="email"
+                [ngClass]="{'invalid-area': form.get('email').invalid && form.get('email').touched }"
+              >
+              <div *ngIf="form.get('email').invalid && form.get('email').touched">
+                <small
+                  class="text-danger text-sm-left"
+                  *ngIf="form.get('email').errors['required']"
+                >Поле не може бути пустим
+                </small>
+                <small
+                  class="text-danger text-sm-left"
+                  *ngIf="form.get('email').errors['email']"
+                >Введіть правильний email
+                </small>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="phone-num" class="col-form-label">Номер Телефону:</label>
+              <input type="tel"
+                     class="form-control"
+                     id="phone-num"
+                     formControlName="tel"
+                     [ngClass]="{'invalid-area': form.get('tel').invalid && form.get('tel').touched }"
+              >
+              <div *ngIf="form.get('tel').invalid && form.get('tel').touched">
+                <small
+                  class="text-danger text-sm-left"
+                  *ngIf="form.get('tel').errors['required']"
+                >Поле не може бути пустим
+                </small>
+                <small
+                  class="text-danger text-sm-left"
+                  *ngIf="form.get('tel').errors.minlength"
+                > Мінімальна довжина: {{form.get('tel').errors.minlength.requiredLength}}
+                  Ви ввели: {{form.get('tel').errors.minlength.actualLength}}
+                </small>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="area" class="col-form-label">Область</label>
+              <select
+                name="area"
+                id="area"
+                (change)="getCities($event.target.value)"
+                class="form-select"
+                formControlName="area"
+                [ngClass]="{'invalid-area': form.get('area').invalid && form.get('area').touched }"
+              >
+                <option value="Оберіть Область" selected disabled>Оберіть Область</option>
+                <option *ngFor="let area of areas" value="{{area.value}}" >{{area.label}}</option>
+              </select>
+              <div>
+                <small
+                  *ngIf="form.get('area').invalid && form.get('area').touched"
+                  class="text-danger text-sm-left"
+                >Оберіть Область
+                </small>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="city" class="col-form-label">Місто:</label>
+              <select
+                name="city"
+                id="city"
+                (change)="getDepartments($event.target.value)"
+                class="form-select"
+                formControlName="city"
+                [ngClass]="{'invalid-area': form.get('city').invalid && form.get('city').touched }"
+              >
+                <option value="Оберіть Місто" selected disabled>Оберіть Місто</option>
+                <option *ngFor="let city of cities" value="{{city.value}}">{{city.label}}</option>
+              </select>
+              <div>
+                <small
+                  *ngIf="form.get('area').invalid && form.get('area').touched"
+                  class="text-danger text-sm-left"
+                >Оберіть Місто
+                </small>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="department" class="col-form-label">Відділення Нової Пошти:</label>
+              <select
+                name="department"
+                id="department"
+                class="form-select"
+                formControlName="department"
+                [ngClass]="{'invalid-area': form.get('department').invalid && form.get('department').touched }"
+              >
+                <option value="Оберіть Відділення" selected disabled>Оберіть Відділення Нової Пошти</option>
+                <option *ngFor="let dep of departments" value="{{dep.value}}">{{dep.label}}</option>
+              </select>
+              <div>
+                <small
+                  *ngIf="form.get('area').invalid && form.get('area').touched"
+                  class="text-danger text-sm-left"
+                >Оберіть Відділення Нової Пошти
+                </small>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Примітка до замовлення:</label>
+              <textarea class="form-control" id="message-text" formControlName="note"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer text-center">
+      <button type="submit" class="btn btn-outline-dark m-auto" [disabled]="form.disabled || form.invalid">Замовити</button>
+    </div>
+  </form>
+  </ng-template>
+</div>

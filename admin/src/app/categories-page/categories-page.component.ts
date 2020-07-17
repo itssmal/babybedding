@@ -1,5 +1,4 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {MaterialService} from "../shared/services/material.service";
 import {CategoriesService} from "../shared/services/categories.service";
 import {Category} from "../shared/interfaces";
 import {Observable} from "rxjs";

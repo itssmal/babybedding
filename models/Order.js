@@ -10,21 +10,22 @@ const orderSchema = new Schema({
         type: String,
         required: true
     },
-    position: {
-        type: String
-    },
-    positionId: {
-        type: String
-    },
-    price: {
-        type: Number
-    },
-    quantity: {
-        type: Number
-    },
-    cost: {
-        type: Number
-    },
+    positions: [
+        {
+            position: {
+                type: String
+            },
+            positionId: {
+                type: String
+            },
+            cost: {
+                type: Number
+            },
+            quantity: {
+                type: Number
+            },
+        }
+    ],
     userName: {
         type: String,
         required: true
@@ -37,11 +38,15 @@ const orderSchema = new Schema({
         type: String,
         required: true
     },
-    address: {
+    area: {
         type: String,
         required: true
     },
-    mailNum: {
+    city: {
+        type: String,
+        required: true
+    },
+    department: {
         type: String,
         required: true
     },

@@ -1,0 +1,112 @@
+.soc-medias a{
+  text-decoration: none;
+  font-size: 3em;
+  margin: 2em;
+  display: inline;
+  align-items: center;
+  color: #000000;
+}
+.soc-medias i{
+  transition: 200ms;
+}
+.soc-medias i:hover {
+  transform: scale(1.2);
+  font-size: 1.1em;
+  transition: 300ms;
+}
+iframe {
+  width: 600px;
+  height: 450px;
+}
+
+@media only screen and (max-width: 768px) {
+  .soc-medias a{
+    text-decoration: none;
+    font-size: 2.3em;
+    margin: 0.5em;
+    display: inline;
+    align-items: center;
+    color: #000000;
+    transition: 300ms;
+  }
+  iframe {
+    width: 350px;
+    height: 250px;
+  }
+}
+.fa-instagram:hover {
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.fa-viber:hover {
+  color: #8f5db7;
+}
+.fa-telegram-plane:hover {
+  color: #0088cc;
+}
+.fa-facebook-f:hover {
+  color: #3b5998;
+}
+.fa-github:hover {
+  color: #6e5494;
+}
+.fa-envelope:hover {
+  color: #d20000;
+}
+#phone {
+  transition: 300ms ease;
+}
+#phone:hover {
+  transform: scale(1.1);
+  transition: 300ms ease;
+  color: #e70001;
+}
+
+
+.heading-section {
+  position: relative;
+}
+.heading-section h2 {
+  font-size: 2em;
+  font-weight: 800;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+@media only screen and (max-width: 768px) {
+  .heading-section h2 {
+    font-size: 1em;
+  }
+  .heading-section .big {
+    font-size: 4em !important;
+    position: absolute;
+    top: -35px !important;
+    left: 0;
+    right: 0;
+    color: rgba(0, 0, 0, 0.04);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .shadow-text {
+    margin: 1.2em 0 !important;
+    padding: 1.2em 0 !important;
+  }
+}
+.shadow-text {
+  margin: 5em;
+  padding: 5em;
+}
+.heading-section .big {
+  position: absolute;
+  top: -90px;
+  left: 0;
+  right: 0;
+  font-size: 10em;
+  color: rgba(0, 0, 0, 0.04);
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+

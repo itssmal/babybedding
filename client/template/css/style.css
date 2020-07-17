@@ -24,7 +24,7 @@ hr {
   display: none;
 }
 .main-header-div {
-  background-image: url('../img/71702674_173937917082870_6877088310849204208_n.png');
+  background-image: url('http://31.131.28.99/uploads/13072020-134425_960-71702674_173937917082870_6877088310849204208_n.png');
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
@@ -68,7 +68,7 @@ hr {
   transition: 300ms;
 }
 .soc-medias i:hover {
-  transform: scale(1.1);
+  transform: scale(1.5);
   font-size: 1.1em;
   transition: 500ms;
 }
