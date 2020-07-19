@@ -12,12 +12,9 @@ import {ContactsComponent} from "./main-page/contacts/contacts.component";
 
 const routes: Routes = [
   {path: '', component: MainComponent, children: [
+      {path: '', redirectTo: '/main', pathMatch: 'full'},
       {path: 'cart', component: CartPageComponent},
-      {path: 'main', component: MainPageComponent, children: [
-          {path: 'about-us', component: AboutUsComponent},
-          {path: 'delivery', component: DeliveryComponent},
-          {path: 'contacts', component: ContactsComponent},
-        ]},
+      {path: 'main', component: MainPageComponent},
       {path: 'positions/:id', component: PositionsPageComponent},
       {path: 'categories', component: CategoriesPageComponent},
       {path: 'position/:id', component: PositionViewPageComponent},
@@ -28,7 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
+    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload', anchorScrolling: 'enabled', scrollOffset: [1, 80]})
   ],
   exports: [
     RouterModule

@@ -45,5 +45,7 @@ export interface MainData {
   textLeft: string,
   textRight: string,
   mainImageSrc?: string,
+  leftImageSrc?: string,
+  rightImageSrc?: string,
   _id?: string
 }

@@ -13,6 +13,14 @@ const mainDataSchema = new Schema({
     mainImageSrc: {
         type: String,
         default: '',
+    },
+    leftImageSrc: {
+        type: String,
+        default: ''
+    },
+    rightImageSrc: {
+        type: String,
+        default: ''
     }
 })
 

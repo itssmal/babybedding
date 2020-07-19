@@ -53,3 +53,33 @@ iframe {
   letter-spacing: 1px;
 }
 
+.d-mob-inl {
+  margin: 10px 5px !important;
+}
+.only-mob {
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  .only-mob {
+    display: flex !important;
+    color: black !important;
+  }
+  .d-mob-inl {
+    margin: 10px 0 !important;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+  }
+  .d-mob-inl .col-1 {
+    text-align: right;
+    margin: 3px 3px !important;
+    padding: 0 !important;
+  }
+  .d-mob-inl img {
+    margin: 10px 0 !important;
+  }
+}
+

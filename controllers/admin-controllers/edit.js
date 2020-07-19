@@ -14,7 +14,9 @@ module.exports.create = async function (req, res) {
     const mainData = new MainData({
         textLeft: req.body.textLeft,
         textRight: req.body.textRight,
-        mainImageSrc: req.file ? req.file.path : 'uploads/71702674_173937917082870_6877088310849204208_n.png'
+        mainImageSrc: req.file ? req.file.path : 'uploads/71702674_173937917082870_6877088310849204208_n.png',
+        leftImageSrc: req.file ? req.file.path : 'uploads/71702674_173937917082870_6877088310849204208_n.png',
+        rightImageSrc: req.file ? req.file.path : 'uploads/71702674_173937917082870_6877088310849204208_n.png'
     })
 
     try {
@@ -31,9 +33,19 @@ module.exports.update = async function (req, res) {
         textRight: req.body.textRight,
     }
 
-    if (req.file) {
-        updated.mainImageSrc = req.file.path
+    if (req.files) {
+        if (req.files.mainImageSrc) {
+            updated.mainImageSrc = req.files.mainImageSrc[0].path
+        }
+        if (req.files.leftImageSrc) {
+            updated.leftImageSrc = req.files.leftImageSrc[0].path
+        }
+        if (req.files.rightImageSrc) {
+            updated.rightImageSrc = req.files.rightImageSrc[0].path
+        }
     }
+
+
 
     try {
         const mainData = await MainData.findOneAndUpdate(

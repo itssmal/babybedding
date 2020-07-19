@@ -13,12 +13,18 @@ import {MaterialService} from "../shared/services/material.service";
 export class EditPageComponent implements OnInit {
 
   @ViewChild('input') inputRef: ElementRef
+  @ViewChild('inputL') inputLRef: ElementRef
+  @ViewChild('inputR') inputRRef: ElementRef
 
   form: FormGroup
   image: File
+  imageL: File
+  imageR: File
   mainData: MainData
   maindatas: MainData[]
   imagePreview: any
+  imagePreviewL: any
+  imagePreviewR: any
 
   constructor(private route: ActivatedRoute,
               private editService: EditService,
@@ -44,6 +50,8 @@ export class EditPageComponent implements OnInit {
               textRight: mainData[0].textRight
             })
             this.imagePreview = mainData[0].mainImageSrc
+            this.imagePreviewL = mainData[0].leftImageSrc
+            this.imagePreviewR = mainData[0].rightImageSrc
             MaterialService.updateTextInputs()
           }
         },
@@ -56,14 +64,15 @@ export class EditPageComponent implements OnInit {
 
   onSubmit() {
     this.form.disable()
-    this.editService.update(this.mainData._id, this.form.value.textLeft, this.form.value.textRight, this.image)
+    this.editService.update(this.mainData._id, this.form.value.textLeft, this.form.value.textRight, this.image, this.imageL, this.imageR )
+    // this.editService.update(this.mainData._id, this.form.value.textLeft, this.form.value.textRight, this.image, this.imageL, this.imageR)
       .subscribe(
         mainData => {
           this.mainData = mainData
           window.alert('Зміни збережені')
           this.form.enable()
         }, error => {
-            window.alert(error.error.message)
+            console.log(error)
              this.form.enable()
         },
           () => {
@@ -81,8 +90,30 @@ export class EditPageComponent implements OnInit {
     reader.onload = () => {
       this.imagePreview = reader.result
     }
-
     reader.readAsDataURL(file)
+  }
+
+  onLeftImgUpload(event: any) {
+    const fileL = event.target.files[0]
+    this.imageL = fileL
+
+    const reader = new FileReader()
+
+    reader.onload = () => {
+      this.imagePreviewL = reader.result
+    }
+    reader.readAsDataURL(fileL)
+  }
+  onRightImgUpload(event: any) {
+    const fileR = event.target.files[0]
+    this.imageR = fileR
+
+    const reader = new FileReader()
+
+    reader.onload = () => {
+      this.imagePreviewR = reader.result
+    }
+    reader.readAsDataURL(fileR)
   }
 
   triggerClick() {
