@@ -3,40 +3,52 @@
     <div class="row border rounded shadow mx-1 my-3 d-mob-inl">
       <h3 class="m-3">Фон</h3>
       <div class="col border d-inline-flex m-3">
-        <img alt="" class="m-3 w-50 border h-auto" [src]="imagePreview">
-        <input
-          type="file"
-          class="display-none"
-          (change)="onFileUpload($event)"
-          #input
-        >
-        <button type="button" class="btn btn-success m-auto" (click)="triggerClick()" style="height: 40px">Завантажити</button>
+        <div class="col">
+          <img alt="" class="img-fluid m-3 border" [src]="imagePreview">
+          <input
+            type="file"
+            class="display-none"
+            (change)="onFileUpload($event)"
+            #input
+          >
+        </div>
+        <div class="col m-auto text-center">
+          <button type="button" class="btn btn-success m-auto" (click)="triggerClick()" style="height: 40px">Завантажити</button>
+        </div>
       </div>
     </div>
     <div class="row border rounded shadow mx-1 my-3 d-mob-inl">
       <h3 class="m-3">Фото зліва</h3>
       <div class="col border d-inline-flex m-3">
-        <img alt="" class="m-3 w-50 border h-auto" [src]="imagePreviewL">
-        <input
-          type="file"
-          class="display-none"
-          (change)="onLeftImgUpload($event)"
-          #inputL
-        >
-        <button type="button" class="btn btn-success m-auto" (click)="this.inputLRef.nativeElement.click()" style="height: 40px">Завантажити</button>
+        <div class="col">
+          <img alt="" class="img-fluid m-3 border" [src]="imagePreviewL">
+          <input
+            type="file"
+            class="display-none"
+            (change)="onLeftImgUpload($event)"
+            #inputL
+          >
+        </div>
+        <div class="col m-auto text-center">
+          <button type="button" class="btn btn-success m-auto" (click)="this.inputLRef.nativeElement.click()" style="height: 40px">Завантажити</button>
+        </div>
       </div>
     </div>
     <div class="row border rounded shadow mx-1 my-3 d-mob-inl">
       <h3 class="m-3">Фото справа</h3>
       <div class="col border d-inline-flex m-3">
-        <img alt="" class="m-3 w-50 border h-auto" [src]="imagePreviewR">
-        <input
-          type="file"
-          class="display-none"
-          (change)="onRightImgUpload($event)"
-          #inputR
-        >
-        <button type="button" class="btn btn-success m-auto" (click)="this.inputRRef.nativeElement.click()" style="height: 40px">Завантажити</button>
+        <div class="col">
+          <img alt="" class="m-3 w-50 border h-auto" [src]="imagePreviewR">
+          <input
+            type="file"
+            class="display-none"
+            (change)="onRightImgUpload($event)"
+            #inputR
+          >
+        </div>
+        <div class="col m-auto text-center">
+          <button type="button" class="btn btn-success m-auto" (click)="this.inputRRef.nativeElement.click()" style="height: 40px">Завантажити</button>
+        </div>
       </div>
     </div>
     <div class="row border rounded shadow mx-1 my-3 d-mob-inl">
