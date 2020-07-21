@@ -6,3 +6,6 @@ body {
 html {
   scroll-behavior: smooth !important;
 }
+[type=button] {
+  -webkit-appearance: none !important;
+}

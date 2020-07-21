@@ -137,8 +137,9 @@
                 formControlName="area"
                 [ngClass]="{'invalid-area': form.get('area').invalid && form.get('area').touched }"
               >
-                <option value="Оберіть Область" selected disabled>Оберіть Область</option>
-                <option *ngFor="let area of areas" value="{{area.value}}" >{{area.label}}</option>
+                <option value="Оберіть Область" selected="selected">Оберіть Область</option>
+                <option *ngFor="let area of areas" value="{{area.value}}">{{area.label}}</option>
+<!--                <option value="Оберіть Область" selected="selected">Оберіть Область</option>-->
               </select>
               <div>
                 <small
@@ -158,7 +159,7 @@
                 formControlName="city"
                 [ngClass]="{'invalid-area': form.get('city').invalid && form.get('city').touched }"
               >
-                <option value="Оберіть Місто" selected disabled>Оберіть Місто</option>
+                <option value="Оберіть Місто" selected="selected">Оберіть Місто</option>
                 <option *ngFor="let city of cities" value="{{city.value}}">{{city.label}}</option>
               </select>
               <div>
@@ -178,7 +179,7 @@
                 formControlName="department"
                 [ngClass]="{'invalid-area': form.get('department').invalid && form.get('department').touched }"
               >
-                <option value="Оберіть Відділення" selected disabled>Оберіть Відділення Нової Пошти</option>
+                <option value="Оберіть Відділення" selected="selected">Оберіть Відділення Нової Пошти</option>
                 <option *ngFor="let dep of departments" value="{{dep.value}}">{{dep.label}}</option>
               </select>
               <div>
