@@ -24,6 +24,9 @@ export class CartPageComponent implements OnInit {
   positions: Position[] = []
   orderPositions: OrderPosition[] = []
   areas: SelectItem[]
+  area: string
+  city: string
+  department: string
   cities: SelectItem[]
   departments: SelectItem[]
   sum = 0
@@ -61,11 +64,16 @@ export class CartPageComponent implements OnInit {
           value: area.Ref
         }))
         this.areas = this.areas.slice(1);
-      }
+    }
     )
   }
 
   public getCities(ref: string) {
+    for (let a = 0; a < this.areas.length; a++) {
+      if (this.areas[a].value === this.form.value.area) {
+        this.area = this.areas[a].label
+      }
+    }
     this.cartService.getCities(ref).subscribe(
       (response: any) => {
         const arr = response.data.map(city => ({
@@ -78,6 +86,11 @@ export class CartPageComponent implements OnInit {
   }
 
   public getDepartments(ref: string) {
+    for (let a = 0; a < this.cities.length; a++) {
+      if (this.cities[a].value === this.form.value.city) {
+        this.city = this.cities[a].label
+      }
+    }
     this.cartService.getDepartments(ref).subscribe(
       (response: any) => {
         const arr = response.data.map(department => ({
@@ -87,6 +100,17 @@ export class CartPageComponent implements OnInit {
         this.departments = arr
       }
     )
+  }
+
+  setDepName() {
+    console.log(this.departments)
+    console.log(this.form.value.department);
+    for (let a = 0; a < this.departments.length; a++) {
+      if (this.departments[a].value === this.form.value.department) {
+        this.department = this.departments[a].label
+        console.log(this.department)
+      }
+    }
   }
 
   onSubmit() {
@@ -100,23 +124,25 @@ export class CartPageComponent implements OnInit {
       })
       this.orderPositions.push(orPos)
     }
-    const formData = new FormData()
-
-    formData.append('userName', this.form.value.fullname)
-    formData.append('userPhoneNumber', this.form.value.tel)
-    formData.append('userEmail', this.form.value.email)
-    formData.append('area', this.form.value.area)
-    formData.append('city', this.form.value.city)
-    formData.append('department', this.form.value.department)
+    //
+    // const formData = new FormData()
+    //
+    // formData.append('userName', this.form.value.fullname)
+    // formData.append('userPhoneNumber', this.form.value.tel)
+    // formData.append('userEmail', this.form.value.email)
+    // formData.append('area', this.area)
+    // formData.append('city', this.city)
+    // formData.append('department', this.department)
 
     this.orderService.create(
       this.orderPositions,
+      this.sum,
       this.form.value.fullname,
       this.form.value.tel,
       this.form.value.email,
-      this.form.value.area,
-      this.form.value.city,
-      this.form.value.department
+      this.area,
+      this.city,
+      this.department
       )
       .subscribe(
         message => window.alert(message),
@@ -124,25 +150,25 @@ export class CartPageComponent implements OnInit {
       )
   }
 
-  onSend() {
-    let user = {
-      name: 'Смаль Олександр',
-      email: 'wwesasha12@gmail.com'
-    }
-    this.cartService.sendEmail("http://localhost:5000/sendmailToUser", user)
-      .subscribe(
-      data => {
-        let res:any = data;
-        console.log(
-          `👏 > 👏 > 👏 > 👏 ${user.name} is successfully register and mail has been sent and the message id is ${res.messageId}`
-        );
-      },
-      err => {
-        console.log(err);
-      },() => {
-        console.log('Success!')
-      })
-  }
+  // onSend() {
+  //   let user = {
+  //     name: 'Смаль Олександр',
+  //     email: 'wwesasha12@gmail.com'
+  //   }
+  //   this.cartService.sendEmail("http://localhost:5000/sendmailToUser", user)
+  //     .subscribe(
+  //     data => {
+  //       let res:any = data;
+  //       console.log(
+  //         `👏 > 👏 > 👏 > 👏 ${user.name} is successfully register and mail has been sent and the message id is ${res.messageId}`
+  //       );
+  //     },
+  //     err => {
+  //       console.log(err);
+  //     },() => {
+  //       console.log('Success!')
+  //     })
+  // }
 
   onRemove(i: number) {
     this.cartService.remove(i)
@@ -159,4 +185,6 @@ export class CartPageComponent implements OnInit {
       this.sum = this.cartService.sum
     }
   }
+
+
 }

@@ -15,10 +15,11 @@ export class OrderService {
   }
 
 
-  create(positions: OrderPosition[], name: string, tel: string, email: string, area: string, city: string, department: string): Observable<Order> {
+  create(positions: OrderPosition[], sum: number, name: string, tel: string, email: string, area: string, city: string, department: string): Observable<Order> {
 
     const body = {
       positions: positions,
+      sum: sum,
       userName: name,
       userPhoneNumber: tel,
       userEmail: email,

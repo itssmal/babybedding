@@ -196,7 +196,7 @@
         </div>
     </div>
     <div class="modal-footer text-center">
-      <button type="submit" class="btn btn-outline-dark m-auto" [disabled]="form.disabled || form.invalid">Замовити</button>
+      <button type="submit" class="btn btn-outline-dark m-auto" [disabled]="form.disabled || form.invalid" (click)="setDepName()">Замовити</button>
     </div>
   </form>
   </ng-template>

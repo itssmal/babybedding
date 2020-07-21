@@ -7,7 +7,7 @@ const orderSchema = new Schema({
         default: Date.now
     },
     order: {
-        type: String,
+        type: Number,
         required: true
     },
     positions: [
