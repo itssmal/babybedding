@@ -25,7 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload', anchorScrolling: 'enabled', scrollOffset: [1, 80]})
+    RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', anchorScrolling: 'enabled', scrollOffset: [1, 80], initialNavigation: 'enabled' })
   ],
   exports: [
     RouterModule
