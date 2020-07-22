@@ -2,4 +2,3 @@ node_modules
 .idea
 config/keys.dev.js
 admin/package-lock.json
-admin/dist
