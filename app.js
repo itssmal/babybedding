@@ -87,44 +87,26 @@ app.post('/sendMailToUser', function(req, res, next) {
     })
 })
 
-// app.use(express.static('admin/dist/admin'))
-app.use(express.static('client/ng-client/dist/client/browser'))
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/ng-client/dist/client/browser'))
+    app.use(express.static('admin/dist/admin'))
 
-app.get('*', (req, res) => {
-    res.sendFile(
-        path.resolve(
-            __dirname, 'client', 'ng-client', 'dist', 'client', 'browser', 'index.html'
+
+    app.get('/', (req, res) => {
+        res.sendFile(
+            path.resolve(
+                __dirname, 'client', 'ng-client', 'dist', 'client', 'browser', 'index.html'
+            )
         )
-    )
-})
-//
-// app.get('admin*', (req, res) => {
-//     res.sendFile(
-//         path.resolve(
-//             __dirname, 'admin', 'dist', 'admin', 'index.html'
-//         )
-//     )
-// })
+    })
 
-//
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static('admin/dist/admin'))
-//     app.use(express.static('client/ng-client/dist/client/browser'))
-//
-//     app.get('*', (req, res) => {
-//         res.sendFile(
-//             path.resolve(
-//                 __dirname, 'client', 'ng-client', 'dist', 'client', 'browser', 'index.html'
-//             )
-//         )
-//     })
-    // app.get('*', (req, res) => {
-    //     res.sendFile(
-    //         path.resolve(
-    //             __dirname, 'admin', 'dist', 'admin', 'index.html'
-    //         )
-    //     )
-    // })
-// }
+    app.get('/admin', (req, res) => {
+        res.sendFile(
+            path.resolve(
+                __dirname, 'admin', 'dist', 'admin', 'index.html'
+            )
+        )
+    })
+}
 
 module.exports = app
