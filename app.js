@@ -90,7 +90,7 @@ app.post('/sendMailToUser', function(req, res, next) {
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('admin/dist/admin'))
-    app.use(express.static('client/ng-client/dist/client/browser/index.html'))
+    app.use(express.static('client/ng-client/dist/client/browser'))
 
     app.get('*', (req, res) => {
         res.sendFile(
