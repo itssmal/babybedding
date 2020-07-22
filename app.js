@@ -92,10 +92,17 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('admin/dist/admin'))
     app.use(express.static('client/ng-client/dist/client/browser'))
 
-    app.get('*', (req, res) => {
+    app.get('/*', (req, res) => {
         res.sendFile(
             path.resolve(
                 __dirname, 'client', 'ng-client', 'dist', 'client', 'browser', 'index.html'
+            )
+        )
+    })
+    app.get('/admin*', (req, res) => {
+        res.sendFile(
+            path.resolve(
+                __dirname, 'admin', 'dist', 'admin', 'index.html'
             )
         )
     })
