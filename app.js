@@ -109,4 +109,23 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
+app.use(express.static('client/ng-client/dist/client/browser'))
+app.use(express.static('admin/dist/admin'))
+
+app.get('*', (req, res) => {
+    if (req.url === '/admin'){
+        res.sendFile(
+            path.resolve(
+                __dirname, 'admin', 'dist', 'admin', 'index.html'
+            )
+        )
+    } else {
+        res.sendFile(
+            path.resolve(
+                __dirname, 'client', 'ng-client', 'dist', 'client', 'browser', 'index.html'
+            )
+        )
+    }
+})
+
 module.exports = app
