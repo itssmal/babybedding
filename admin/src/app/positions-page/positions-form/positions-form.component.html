@@ -61,7 +61,8 @@
                 class="form-select m-auto w-50"
                 [ngClass]="{'invalid-area': form.get('categoryId').invalid }"
                 formControlName="categoryId">
-          <option *ngFor="let cat of categories" [ngValue]="cat._id" [selected]="">{{cat.name}}</option>
+          <option value="Оберіть Категорію" selected="selected">Оберіть Категорію</option>
+          <option *ngFor="let cat of categories" [ngValue]="cat._id">{{cat.name}}</option>
         </select>
         <small
           class="text-danger text-center"

@@ -31,10 +31,10 @@ export function app() {
     maxAge: '1y'
   }));
 
-  const apiProxy = proxy('/api/', { target: 'http://vaua0068633.online-vm.com' });
+  const apiProxy = proxy('/api/', { target: 'http://localhost:5000' });
   server.use('/api/', apiProxy);
 
-  const uploadProxy = proxy('/uploads/', { target: 'http://vaua0068633.online-vm.com' });
+  const uploadProxy = proxy('/uploads/', { target: 'http://localhost:5000' });
   server.use('/uploads/', uploadProxy);
 
   // All regular routes use the Universal engine

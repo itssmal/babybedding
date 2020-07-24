@@ -1,6 +1,9 @@
-<div class="main-header-div vh-100 text-left" [style.background-image]="'url(' + mainData.mainImageSrc + ')'">
-  <h1 class="main-header">Baby Bedding</h1>
+<div *ngIf="mainData">
+  <div class="main-header-div vh-100 text-left" [style.background-image]="'url(' + mainData.mainImageSrc + ')'">
+    <h1 class="main-header">Baby Bedding</h1>
+  </div>
 </div>
+
 
 <app-about-us id="about-us"></app-about-us>
 

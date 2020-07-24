@@ -27,7 +27,7 @@ export interface Order {
   date: Date,
   positions: OrderPosition[],
   userName: string,
-  userPhone: number,
+  userPhoneNumber: number,
   userEmail: string,
   area: string,
   city: string,
