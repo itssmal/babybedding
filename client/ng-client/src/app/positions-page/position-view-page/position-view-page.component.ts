@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PositionsService} from "../../shared/services/positions.service";
 import {Position} from "../../shared/interfaces";
@@ -14,11 +14,15 @@ export class PositionViewPageComponent implements OnInit {
 
   positionId: string
   position: Position
+  isPaymentCollapsed = true
+  isDeliveryCollapsed = true
+  isInfoCollapsed = true
 
   constructor(private route: ActivatedRoute,
               private positionsService: PositionsService,
               private cartService: CartService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe(
