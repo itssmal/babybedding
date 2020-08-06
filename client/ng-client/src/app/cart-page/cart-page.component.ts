@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {OrderPosition, Position} from "../shared/interfaces";
 import {OrderService} from "../shared/services/order.service";
 import {Subscription} from "rxjs";
+import {ToastrService} from "ngx-toastr";
 
 interface SelectItem {
   label: string,
@@ -33,7 +34,8 @@ export class CartPageComponent implements OnInit {
 
   constructor(private modalService: NgbModal,
               private cartService: CartService,
-              private orderService: OrderService) {
+              private orderService: OrderService,
+              private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -103,12 +105,9 @@ export class CartPageComponent implements OnInit {
   }
 
   setDepName() {
-    console.log(this.departments)
-    console.log(this.form.value.department);
     for (let a = 0; a < this.departments.length; a++) {
       if (this.departments[a].value === this.form.value.department) {
         this.department = this.departments[a].label
-        console.log(this.department)
       }
     }
   }
@@ -124,15 +123,6 @@ export class CartPageComponent implements OnInit {
       })
       this.orderPositions.push(orPos)
     }
-    //
-    // const formData = new FormData()
-    //
-    // formData.append('userName', this.form.value.fullname)
-    // formData.append('userPhoneNumber', this.form.value.tel)
-    // formData.append('userEmail', this.form.value.email)
-    // formData.append('area', this.area)
-    // formData.append('city', this.city)
-    // formData.append('department', this.department)
 
     this.orderService.create(
       this.orderPositions,
@@ -145,30 +135,25 @@ export class CartPageComponent implements OnInit {
       this.department
       )
       .subscribe(
-        message => window.alert(message),
-        error => window.alert(error.error.message)
+        message => {
+          this.toastr.success(`Очікуйте лист на електронній скриньці`,'Дякуємо!', {
+            timeOut: 5000,
+            toastClass: 'toast',
+            titleClass: 'toast-header',
+            messageClass: 'toast-body'
+          });
+          this.modalService.dismissAll()
+        },
+        error => {
+          this.toastr.error(error.error.message,'Помилка!', {
+            timeOut: 5000,
+            toastClass: 'toast',
+            titleClass: 'toast-header',
+            messageClass: 'toast-body'
+          });
+        }
       )
   }
-
-  // onSend() {
-  //   let user = {
-  //     name: 'Смаль Олександр',
-  //     email: 'wwesasha12@gmail.com'
-  //   }
-  //   this.cartService.sendEmail("http://localhost:5000/sendmailToUser", user)
-  //     .subscribe(
-  //     data => {
-  //       let res:any = data;
-  //       console.log(
-  //         `👏 > 👏 > 👏 > 👏 ${user.name} is successfully register and mail has been sent and the message id is ${res.messageId}`
-  //       );
-  //     },
-  //     err => {
-  //       console.log(err);
-  //     },() => {
-  //       console.log('Success!')
-  //     })
-  // }
 
   onRemove(i: number) {
     this.cartService.remove(i)
@@ -176,7 +161,6 @@ export class CartPageComponent implements OnInit {
   }
 
   calcSum(index: number, quantity: number) {
-    console.log('i' + index, 'quant: ' + quantity)
     if (this.positions[index].quantity === 0) {
       this.positions.splice(index, 1)
       this.cartService.positions = this.positions

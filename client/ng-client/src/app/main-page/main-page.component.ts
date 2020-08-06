@@ -5,6 +5,7 @@ import {CategoriesService} from "../shared/services/categories.service";
 import {Observable} from "rxjs";
 import {Category} from "../shared/interfaces";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-main-page',
@@ -20,7 +21,8 @@ export class MainPageComponent implements OnInit {
 
   constructor(private mainInfoService: MainInfoService,
               private categoriesService: CategoriesService,
-              private router: Router) { }
+              private router: Router,
+              private toastr: ToastrService) { }
 
   ngOnInit() {
     this.mainInfoService.get()
@@ -29,7 +31,12 @@ export class MainPageComponent implements OnInit {
           this.mainData = mainData[0]
         },
         error => {
-          window.alert(error.error.message)
+          this.toastr.error(error.error.message,'Помилка!', {
+            timeOut: 5000,
+            toastClass: 'toast',
+            titleClass: 'toast-header',
+            messageClass: 'toast-body'
+          })
         }
       )
 

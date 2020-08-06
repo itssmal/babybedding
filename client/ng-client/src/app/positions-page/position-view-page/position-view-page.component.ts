@@ -34,7 +34,14 @@ export class PositionViewPageComponent implements OnInit {
         position => {
           this.position = position
         },
-        error => window.alert(error.error.message)
+        error => {
+          this.toastr.error(error.error.message,'Помилка!', {
+            timeOut: 5000,
+            toastClass: 'toast',
+            titleClass: 'toast-header',
+            messageClass: 'toast-body'
+          })
+        }
       )
   }
 

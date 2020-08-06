@@ -25,6 +25,9 @@ footer a{
   color: #000000;
   margin: 0;
 }
+.footer-text {
+  font-size: 0.7rem;
+}
 .badge {
   margin: -7px;
 }

@@ -3,6 +3,7 @@ import {MainData} from "../../../../../../admin/src/app/shared/interfaces";
 import {Observable} from "rxjs";
 import {Category} from "../../shared/interfaces";
 import {MainInfoService} from "../../shared/services/main-info.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-delivery',
@@ -15,7 +16,8 @@ export class DeliveryComponent implements OnInit {
   categories$: Observable<Category[]>
   categories: Category[] = []
 
-  constructor(private mainInfoService: MainInfoService) {
+  constructor(private mainInfoService: MainInfoService,
+              private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -25,7 +27,12 @@ export class DeliveryComponent implements OnInit {
           this.mainData = mainData[0]
         },
         error => {
-          window.alert(error.error.message)
+          this.toastr.error(error.error.message,'Помилка!', {
+            timeOut: 5000,
+            toastClass: 'toast',
+            titleClass: 'toast-header',
+            messageClass: 'toast-body'
+          })
         }
       )
   }
