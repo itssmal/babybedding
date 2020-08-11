@@ -82,8 +82,9 @@ app.post('/sendMailToUser', function(req, res, next) {
     }, function (err, response) {
         if (err) {
             res.send(err)
+        } else {
+            res.send('good email')
         }
-        res.send('good email')
     })
 })
 

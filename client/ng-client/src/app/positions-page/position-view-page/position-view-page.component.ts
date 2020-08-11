@@ -51,7 +51,7 @@ export class PositionViewPageComponent implements OnInit {
       timeOut: 2000,
       toastClass: 'toast',
       titleClass: 'toast-header',
-      messageClass: 'toast-body'
+      messageClass: 'toast-body',
     });
   }
 }
