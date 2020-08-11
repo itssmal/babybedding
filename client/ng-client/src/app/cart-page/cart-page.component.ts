@@ -135,15 +135,7 @@ export class CartPageComponent implements OnInit {
       this.department
       )
       .subscribe(
-        message => {
-          this.toastr.success(`Очікуйте лист на електронній скриньці`,'Дякуємо!', {
-            timeOut: 5000,
-            toastClass: 'toast',
-            titleClass: 'toast-header',
-            messageClass: 'toast-body'
-          });
-          this.modalService.dismissAll()
-        },
+        () => this.modalService.dismissAll(),
         error => {
           this.toastr.error(error.error.message,'Помилка!', {
             timeOut: 5000,

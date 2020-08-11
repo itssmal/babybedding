@@ -30,7 +30,7 @@ export class OrderService {
       department: department
     }
 
-    this.sendEmail('/sendmailToUser', body)
+    this.sendEmail('/sendMailToUser', body)
       .subscribe(
         data => {
           let res:any = data;
