@@ -17,7 +17,7 @@ export class OrderService {
   }
 
 
-  create(positions: OrderPosition[], sum: number, name: string, tel: string, email: string, area: string, city: string, department: string): Observable<Order> {
+  create(positions: OrderPosition[], sum: number, name: string, tel: string, email: string, area: string, city: string, department: string, notes: string): Observable<Order> {
 
     const body = {
       positions: positions,
@@ -27,7 +27,8 @@ export class OrderService {
       userEmail: email,
       area: area,
       city: city,
-      department: department
+      department: department,
+      notes: notes
     }
 
     this.sendEmail('/sendMailToUser', body)

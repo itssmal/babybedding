@@ -50,7 +50,7 @@ export class CartPageComponent implements OnInit {
       area: new FormControl(null, Validators.required),
       city: new FormControl(null, Validators.required),
       department: new FormControl(null, Validators.required),
-      note: new FormControl(null)
+      notes: new FormControl(null)
     })
   }
 
@@ -132,7 +132,8 @@ export class CartPageComponent implements OnInit {
       this.form.value.email,
       this.area,
       this.city,
-      this.department
+      this.department,
+      this.form.value.notes
       )
       .subscribe(
         () => {
@@ -153,6 +154,7 @@ export class CartPageComponent implements OnInit {
           })
         }
       )
+    this.orderPositions = []
   }
 
   onRemove(i: number) {

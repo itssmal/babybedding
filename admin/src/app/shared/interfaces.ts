@@ -32,6 +32,7 @@ export interface Order {
   area: string,
   city: string,
   department: string,
+  notes: string,
   done: boolean,
   _id?: string
 }

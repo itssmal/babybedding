@@ -65,6 +65,7 @@
               <p class="m-2">Місто: {{order.city}}</p>
               <p class="m-2">Відділення Нової Пошти: {{order.department}}</p>
               <hr>
+              <p class="m-2" *ngIf="order.notes !== ''">Примітка: {{order.notes}}</p>
             </div>
           </div>
         </div>

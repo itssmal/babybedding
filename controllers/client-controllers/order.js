@@ -15,6 +15,7 @@ module.exports.create = async function (req, res) {
             area: req.body.area,
             city: req.body.city,
             department: req.body.department,
+            notes: req.body.notes,
             done: false
         }).save()
         res.status(200).json('Замовлення створено!')

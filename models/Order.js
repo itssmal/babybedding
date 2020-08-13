@@ -50,6 +50,10 @@ const orderSchema = new Schema({
         type: String,
         required: true
     },
+    notes: {
+        type: String,
+        required: false
+    },
     done: {
         type: Boolean,
         default: false
