@@ -58,7 +58,8 @@ const auth = {
     auth: {
         api_key: keys.mailApi,
         domain: keys.mailDom
-    }
+    },
+    host: 'api.eu.mailgun.net'
 }
 
 const transporter = nodemailer.createTransport(mailgun(auth))
@@ -71,6 +72,7 @@ app.post('/sendMailToUser', function(req, res, next) {
         sum: req.body.sum,
         userName: req.body.userName,
         userPhone: req.body.userPhoneNumber,
+        userEmail: req.body.userEmail,
         area: req.body.area,
         city: req.body.city,
         department: req.body.department,
