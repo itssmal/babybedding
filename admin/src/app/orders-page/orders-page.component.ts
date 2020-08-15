@@ -85,7 +85,9 @@ export class OrdersPageComponent implements OnInit, AfterViewInit {
             window.alert(res.message)
           },
           error1 => window.alert(error1.error.message),
-          () => {this.ordersService.fetch()}
+          () => {
+            this.orders$ = this.ordersService.fetch()
+          }
         )
     }
   }
