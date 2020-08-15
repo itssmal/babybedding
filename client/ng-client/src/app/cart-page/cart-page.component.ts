@@ -31,6 +31,9 @@ export class CartPageComponent implements OnInit {
   cities: SelectItem[]
   departments: SelectItem[]
   sum = 0
+  isPaymentCollapsed = true
+  isDeliveryCollapsed = true
+  isInfoCollapsed = true
 
   constructor(private modalService: NgbModal,
               private cartService: CartService,
@@ -42,6 +45,7 @@ export class CartPageComponent implements OnInit {
     this.positions = this.cartService.positions
     this.sum = this.cartService.sum
     this.getAreas()
+
 
     this.form = new FormGroup({
       fullname: new FormControl(null, Validators.required),
