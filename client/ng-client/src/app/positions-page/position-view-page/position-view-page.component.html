@@ -1,19 +1,29 @@
 <div class="container mb-5">
   <div class="row">
-    <div class="col-lg-6 mr-5 mt-5 rounded">
-      <img src="{{position.imageSrc}}" alt="" style="width:100%" class="rounded shadow">
-    </div>
-    <div class="col m-5">
-      <div class="row d-flex justify-content-center align-content-center">
-        <div class="col text-center m-4">
-          <h1>{{position.name | titlecase}}</h1>
-          <hr>
-          <div class="desc text-secondary">
-            <span>{{position.description}}</span>
+    <div class="row m-auto">
+      <div class="col-lg-6 p-0 mt-5 m-auto rounded">
+        <div class="row m-auto p-0 text-center">
+          <img [src]="expandedImage" alt="" style="max-width: 100%; max-height:20rem; transition: 500ms" class="rounded shadow p-0" >
+        </div>
+        <div class="row mt-3">
+          <div class="col mt-2 rounded" *ngFor="let img of position.images; let i = index">
+            <a (click)="showImg(i)" style="cursor: pointer">
+              <img [src]="img.imageSrc" alt="" style="max-width: 5rem; max-height: 5rem " class="rounded shadow mx-0 border" [ngClass]="{'border-secondary' : expandedImage === img.imageSrc}">
+            </a>
           </div>
-          <hr class="mb-4">
-          <h2 class="font-weight-bold mb-4">{{position.cost | currency:'UAH'}}</h2>
-          <a type="button" class="text-decoration-none bg-dark rounded px-5 py-2 add-to-cart" (click)="onAdd(position._id)">
+        </div>
+      </div>
+      <div class="col m-4">
+        <div class="row d-flex justify-content-center align-content-center">
+          <div class="col text-center m-4">
+            <h1>{{position.name | titlecase}}</h1>
+            <hr>
+            <div class="desc text-secondary">
+              <span>{{position.description}}</span>
+            </div>
+            <hr class="mb-4">
+            <h2 class="font-weight-bold mb-4">{{position.cost | currency:'UAH'}}</h2>
+            <a type="button" class="text-decoration-none bg-dark rounded px-4 py-2 add-to-cart" (click)="onAdd(position._id)">
             <span class="card-text text-decoration-none text-light">
                 В кошик
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-plus mb-1 text-light" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -23,10 +33,17 @@
                   <path fill-rule="evenodd" d="M7.5 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-2z"/>
                 </svg>
             </span>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
     </div>
+<!--    <div class="row">-->
+<!--      <div class="col mt-2 mx-0 rounded" *ngFor="let img of position.images">-->
+<!--        <img [src]="img.imageSrc" alt="" style="max-width: 10rem; max-height: 10rem " class="rounded shadow mx-0">-->
+<!--      </div>-->
+<!--    </div>-->
+
     <div class="col-12 mt-5">
       <div class="row">
         <a type="button" class="text-decoration-none text-body" (click)="isPaymentCollapsed = !isPaymentCollapsed">

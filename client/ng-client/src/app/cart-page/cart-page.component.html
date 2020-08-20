@@ -21,7 +21,7 @@
               </a>
             </div>
             <div class="col m-auto p-0">
-              <img [src]="position.imageSrc" alt="" width="150px" class="my-2">
+              <img [src]="position.images[position.mainImageId].imageSrc" alt="" width="150px" class="my-2">
             </div>
             <div class="col text-center m-auto">
               <h5>{{position.name | titlecase}}</h5>

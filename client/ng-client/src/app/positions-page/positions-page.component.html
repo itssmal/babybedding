@@ -12,7 +12,7 @@
 
         <div class="card border-0 m-center" style="width: 18rem" aTilt>
           <a [routerLink]="['/position/', position._id]" class="text-decoration-none text-body">
-            <img class="card-img" [src]="position.imageSrc"  alt="{{position.name}}" style="width: 100%; height: 18rem">
+            <img class="card-img" [src]="position.images[position.mainImageId].imageSrc"  alt="{{position.name}}" style="width: 100%; height: 18rem">
           </a>
           <div class="card-body p-1">
             <a [routerLink]="['/position/', position._id]" class="text-decoration-none text-body">

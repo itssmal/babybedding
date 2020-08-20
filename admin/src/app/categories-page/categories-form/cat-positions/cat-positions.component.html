@@ -30,7 +30,7 @@
     <div class="col-md-4" *ngFor="let position of positions">
       <a [routerLink]="['/admin-positions/edit/', position._id]">
         <div class="card card-hover m-auto mb-5" style="width: 18rem" [ngClass]="{'card-hover': !canDelete}">
-          <img src="{{position.imageSrc}}" class="card-img-top" alt="..." style="width: 17.9rem; height: 18rem">
+          <img src="{{position.images[position.mainImageId].imageSrc}}" class="card-img-top" alt="..." style="width: 17.9rem; height: 18rem">
           <div class="card-body text-center">
             <a
               type="button"

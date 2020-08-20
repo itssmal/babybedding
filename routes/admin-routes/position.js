@@ -7,8 +7,8 @@ const router = express.Router()
 router.get('/', passport.authenticate('jwt', {session: false}), controller.getAll )
 router.get('/:categoryId', passport.authenticate('jwt', {session: false}), controller.getByCategoryId)
 router.get('/edit/:id', passport.authenticate('jwt', {session: false}), controller.getOneById)
-router.post('/', passport.authenticate('jwt', {session: false}), upload.single('image'), controller.create)
-router.patch('/:id', passport.authenticate('jwt', {session: false}), upload.single('image'), controller.update)
+router.post('/', passport.authenticate('jwt', {session: false}), upload.array('images'), controller.create)
+router.patch('/:id', passport.authenticate('jwt', {session: false}), upload.array('images'), controller.update)
 router.delete('/:id', passport.authenticate('jwt', {session: false}), controller.remove)
 
 module.exports = router

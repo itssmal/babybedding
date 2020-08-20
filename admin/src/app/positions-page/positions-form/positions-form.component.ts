@@ -5,8 +5,8 @@ import {CategoriesService} from "../../shared/services/categories.service";
 import {switchMap} from "rxjs/operators";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Observable, of} from "rxjs";
-import {MaterialService} from "../../shared/services/material.service";
 import {Category, Position} from "../../shared/interfaces";
+import {MaterialService} from "../../shared/services/material.service";
 
 @Component({
   selector: 'app-positions-form',
@@ -20,7 +20,10 @@ export class PositionsFormComponent implements OnInit {
 
   position: Position
   image: File
+  images: File[]
+  fetchedImages = []
   imagePreview: any
+  imagesPreview = []
   form: FormGroup
   categories$: Observable<Category[]>
   newMode = true
@@ -28,12 +31,13 @@ export class PositionsFormComponent implements OnInit {
   error: string
   res: string
   actCat: string
+  mainImageId = 0
+  categorySelect: string
 
   constructor(private positionsService: PositionsService,
               private categoriesService: CategoriesService,
               private route: ActivatedRoute,
-              private router: Router,
-              private fb: FormBuilder) { }
+              private router: Router) { }
 
   ngOnInit(){
 
@@ -71,7 +75,11 @@ export class PositionsFormComponent implements OnInit {
               cost: position.cost,
               categoryId: position.categoryId
             })
-            this.imagePreview = position.imageSrc
+            this.categorySelect = position.categoryId
+            this.mainImageId = position.mainImageId
+            this.imagesPreview = position.images
+            this.images = position.images
+            MaterialService.updateTextInputs()
           }
           this.form.enable()
         },
@@ -87,15 +95,23 @@ export class PositionsFormComponent implements OnInit {
   }
 
   onFileUpload(event: any) {
-    const file = event.target.files[0]
-    this.image = file
+    this.imagesPreview = []
+    this.images = []
 
-    const reader = new FileReader()
+    for (let i = 0; i< event.target.files.length; i++) {
 
-    reader.onload = () => {
-      this.imagePreview = reader.result
+      const file = event.target.files[i]
+      this.images.push(file)
+
+      const reader = new FileReader()
+
+      reader.onload = () => {
+        this.imagesPreview.push({imageSrc: reader.result})
+        console.log(reader.result)
+      }
+
+      reader.readAsDataURL(file)
     }
-    reader.readAsDataURL(file)
   }
 
   onSubmit() {
@@ -109,7 +125,8 @@ export class PositionsFormComponent implements OnInit {
         this.form.value.description,
         this.form.value.cost,
         this.form.value.categoryId,
-        this.image
+        this.images,
+        this.mainImageId
       )
     } else {
       obs$ = this.positionsService.update(
@@ -118,7 +135,8 @@ export class PositionsFormComponent implements OnInit {
         this.form.value.description,
         this.form.value.cost,
         this.form.value.categoryId,
-        this.image
+        this.images,
+        this.mainImageId
       )
     }
     obs$.subscribe(
@@ -132,6 +150,7 @@ export class PositionsFormComponent implements OnInit {
         this.form.enable()
       },
       () => {
+        this.mainImageId = 0
         if (this.position.categoryId) {
           this.router.navigate([`/admin-categories/${this.position.categoryId}`])
         }
@@ -154,4 +173,17 @@ export class PositionsFormComponent implements OnInit {
         )
     }
   }
+
+  toggleMain(i: number) {
+
+    console.log(i)
+    this.mainImageId = i
+    //
+    // for (let a = 0; a < this.imagesPreview.length; a++) {
+    //   this.imagesPreview[a].main = false
+    // }
+    // this.imagesPreview[i].main = true
+    // console.log(this.imagesPreview)
+  }
+
 }

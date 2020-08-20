@@ -10,8 +10,15 @@ const positionSchema = new Schema({
         type: String,
         required: true
     },
-    imageSrc: {
-        type: String,
+    images: [
+        {
+            imageSrc: {
+                type: String
+            }
+        }
+    ],
+    mainImageId: {
+        type: Number,
         required: true
     },
     cost: {

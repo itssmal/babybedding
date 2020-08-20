@@ -16,7 +16,12 @@ export interface Category {
 export interface Position {
   name: string,
   description: string,
-  imageSrc?: string,
+  images?: [
+    {
+      imageSrc: string,
+    }
+  ],
+  mainImageId: number,
   cost: number,
   categoryId: string,
   quantity?: number,

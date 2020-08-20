@@ -17,6 +17,7 @@ export class PositionViewPageComponent implements OnInit {
   isPaymentCollapsed = true
   isDeliveryCollapsed = true
   isInfoCollapsed = true
+  expandedImage: string
 
   constructor(private route: ActivatedRoute,
               private positionsService: PositionsService,
@@ -33,6 +34,7 @@ export class PositionViewPageComponent implements OnInit {
       .subscribe(
         position => {
           this.position = position
+          this.expandedImage = position.images[position.mainImageId].imageSrc
         },
         error => {
           this.toastr.error(error.error.message,'Помилка!', {
@@ -53,5 +55,10 @@ export class PositionViewPageComponent implements OnInit {
       titleClass: 'toast-header',
       messageClass: 'toast-body',
     });
+  }
+
+  showImg(i: number) {
+    this.expandedImage = this.position.images[i].imageSrc
+    // this.expanded = !this.expanded
   }
 }

@@ -13,7 +13,7 @@ import {MaterialService} from "../shared/services/material.service";
 export class PositionsPageComponent implements OnInit {
 
   positions$: Observable<Position[]>
-  positions: Position[] = []
+  positions: Position[]
   canDelete = false
   canEdit = false
   search: string = ''

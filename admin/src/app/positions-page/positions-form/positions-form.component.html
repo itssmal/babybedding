@@ -2,13 +2,17 @@
   class="container"
   *ngIf="categories$ | async as categories"
 >
-  <div>
-    <div class="card-img text-center mt-3">
-      <div class="border rounded m-auto shadow">
-        <i *ngIf="!imagePreview" class="material-icons img-load-icon">child_friendly</i>
-        <img *ngIf="imagePreview" class="uploading rounded" [src]="imagePreview" alt="Фото категорії">
+  <div class="row">
+    <div class="col" *ngFor="let img of imagesPreview; let i = index">
+      <div class="card-img text-center mt-3">
+        <div class="border rounded m-auto shadow" [ngClass]="{'border-danger': mainImageId === i }">
+          <a (click)="toggleMain(i)" style="cursor: pointer">
+            <img *ngIf="imagesPreview" class="uploading rounded" [src]="img.imageSrc" alt="Фото категорії" >
+          </a>
+        </div>
       </div>
     </div>
+
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="m-3 text-center">
         <input
@@ -17,8 +21,9 @@
           placeholder="Назва позиції"
           [ngClass]="{'invalid-area': form.get('name').invalid && form.get('name').touched }"
           formControlName="name"
-          [(ngModel)]="newPosName"
-        >
+          >
+<!--          [(ngModel)]="newPosName"-->
+
         <small
           class="text-danger"
           *ngIf="form.get('name').invalid && form.get('name').touched"
@@ -60,6 +65,7 @@
         <select id="pos_cat"
                 class="form-select m-auto w-50"
                 [ngClass]="{'invalid-area': form.get('categoryId').invalid }"
+                [(ngModel)]="categorySelect"
                 formControlName="categoryId">
           <option value="Оберіть Категорію" selected="selected">Оберіть Категорію</option>
           <option *ngFor="let cat of categories" [ngValue]="cat._id">{{cat.name}}</option>
@@ -80,6 +86,7 @@
         <input
           type="file"
           class="display-none"
+          multiple="multiple"
           (change)="onFileUpload($event)"
           #input
         >

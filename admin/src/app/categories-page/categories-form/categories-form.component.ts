@@ -109,6 +109,7 @@ export class CategoriesFormComponent implements OnInit {
     }
 
     reader.readAsDataURL(file)
+    console.log(this.imagePreview)
   }
 
   deleteCategory() {
