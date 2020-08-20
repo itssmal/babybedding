@@ -20,7 +20,7 @@
 .border {
   border-color: #f44336;
   width: 10rem;
-  height: 10rem;
+  max-height: 15rem;
 }
 .img-load-icon {
   margin: 4rem;

@@ -7,7 +7,7 @@
       <div class="card-img text-center mt-3">
         <div class="border rounded m-auto shadow" [ngClass]="{'border-danger': mainImageId === i }">
           <a (click)="toggleMain(i)" style="cursor: pointer">
-            <img *ngIf="imagesPreview" class="uploading rounded" [src]="img.imageSrc" alt="Фото категорії" >
+            <img *ngIf="imagesPreview" class="uploading rounded" [src]="img.imageSrc" alt="Фото категорії">
           </a>
         </div>
       </div>
