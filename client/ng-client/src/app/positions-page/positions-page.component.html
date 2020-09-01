@@ -1,7 +1,7 @@
 <div class="shadow-text">
   <div class="col-md-12 heading-section text-center my-5">
     <a id="contacts"></a>
-    <h1 class="big">{{catName ? catName : 'Всі товари' }}</h1>
+    <h1 class="big" *ngIf="catName.length <= 7">{{catName ? catName : 'Всі товари' }}</h1>
     <h2 class="mb-4">{{catName ? catName : 'Всі товари' }}</h2>
   </div>
 </div>

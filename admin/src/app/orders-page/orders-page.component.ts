@@ -3,7 +3,8 @@ import {MaterialService} from "../shared/services/material.service";
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {OrdersService} from "../shared/services/orders.service";
 import {Observable} from "rxjs";
-import {Message, Order} from "../shared/interfaces";
+import {Message, Order, Position} from "../shared/interfaces";
+import {PositionsService} from "../shared/services/position.service";
 
 
 @Component({
@@ -29,8 +30,9 @@ export class OrdersPageComponent implements OnInit, AfterViewInit {
   canDelete = false
   fullOrder = []
   testOrders = []
-
-  constructor(private ordersService: OrdersService) {
+  imgPrevs= []
+  constructor(private ordersService: OrdersService,
+              private positionsService: PositionsService) {
   }
 
   ngOnInit() {
@@ -92,9 +94,18 @@ export class OrdersPageComponent implements OnInit, AfterViewInit {
     }
   }
 
-  showMore(i: number) {
+  showMore(i: number, positions) {
     const showInfo = false
     this.fullOrder.push(showInfo)
     this.fullOrder[i] = !this.fullOrder[i]
+    console.log(positions)
+    for (let i = 0; i < positions.length; i++) {
+      this.positionsService.fetchOne(positions[i].positionId)
+        .subscribe(
+          position => {
+            this.imgPrevs.push(position.images[position.mainImageId].imageSrc)
+          }
+        )
+    }
   }
 }
