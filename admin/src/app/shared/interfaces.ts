@@ -46,6 +46,7 @@ export interface OrderPosition {
   positionId: string,
   cost: number,
   quantity: number,
+  imgPrev?: string
 }
 export interface MainData {
   textLeft: string,
