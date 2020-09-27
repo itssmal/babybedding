@@ -24,6 +24,7 @@ export class OrdersPageComponent implements OnInit, AfterViewInit {
   @ViewChild('floatingBtn') floatingRef: ElementRef
 
   orders$: Observable<Order[]>
+  orders: Order[]
   order: Order
   done: boolean
   canEdit = false
@@ -42,7 +43,10 @@ export class OrdersPageComponent implements OnInit, AfterViewInit {
     //       this.testOrders = res
     //     }
     //   )
-    this.orders$ = this.ordersService.fetch()
+    this.ordersService.fetch()
+      .subscribe(res => {
+        this.orders = res
+      })
   }
 
   ngAfterViewInit() {
@@ -98,14 +102,13 @@ export class OrdersPageComponent implements OnInit, AfterViewInit {
     const showInfo = false
     this.fullOrder.push(showInfo)
     this.fullOrder[i] = !this.fullOrder[i]
-    console.log(positions)
-    for (let i = 0; i < positions.length; i++) {
-      this.positionsService.fetchOne(positions[i].positionId)
+    positions.forEach((pos, a) => {
+      this.positionsService.fetchOne(pos.positionId)
         .subscribe(
           position => {
-            this.imgPrevs.push(position.images[position.mainImageId].imageSrc)
+            this.orders[i].positions[a].imgPrev = position.images[position.mainImageId].imageSrc
           }
         )
-    }
+    })
   }
 }

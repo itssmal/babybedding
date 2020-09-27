@@ -1,4 +1,4 @@
-<div class="container mt-2" *ngIf="orders$ | async as orders">
+<div class="container mt-2" *ngIf="orders">
     <div class="row" *ngIf="orders.length !== 0; else empty">
       <div *ngFor="let order of orders; let i = index" class="mt-2">
         <div class="col border shadow" >
@@ -50,7 +50,7 @@
               <div *ngFor="let position of order.positions; let i= index">
                 <hr>
                 <div class="img-fluid text-center">
-                  <img [src]="imgPrevs[i]" alt="" style="max-height: 15rem" class="m-auto">
+                  <img [src]="position.imgPrev" alt="" style="max-height: 15rem" class="m-auto">
                 </div>
                 <p class="m-2">Назва Товару: {{position.position}}</p>
                 <p class="m-2">id Товару: {{position.positionId}}</p>
