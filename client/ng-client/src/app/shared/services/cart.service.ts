@@ -98,7 +98,11 @@ export class CartService {
 
   calcSum() {
     this.sum = this.positions.reduce((total, item)=>{
-      return total += item.cost * item.quantity
+      if (item.saleCost) {
+        return total += item.saleCost * item.quantity
+      } else  {
+        return total += item.cost * item.quantity
+      }
     }, 0)
   }
 }

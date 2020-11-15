@@ -1,6 +1,5 @@
 <div
   class="container"
-  *ngIf="categories$ | async as categories"
 >
   <div class="row">
     <div class="col" *ngFor="let img of imagesPreview; let i = index">
@@ -14,13 +13,15 @@
     </div>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="m-3 text-center">
+      <button (click)="toggleSaleMode()" class="btn btn-outline-danger w-25 mt-5" type="button">{{!saleMode ? 'Зробити товар акційним' : 'Зняти акцію'}}</button>
+      <div class="m-3">
+        <label for="name">Назва позиції</label>
         <input
           class="form-control m-auto w-50 "
           type="text"
           placeholder="Назва позиції"
           [ngClass]="{'invalid-area': form.get('name').invalid && form.get('name').touched }"
-          formControlName="name"
+          formControlName="name" id="name"
           >
 <!--          [(ngModel)]="newPosName"-->
 
@@ -31,6 +32,7 @@
         </small>
       </div>
       <div class="m-3">
+        <label for="pos_dscr">Опис позиції</label>
         <textarea
           class="form-control m-auto w-50"
           placeholder="Опис Позиції"
@@ -47,6 +49,7 @@
       </div>
 
       <div class="m-3">
+        <label for="pos_cost">Ціна</label>
         <input
           class="form-control m-auto w-50"
           id="pos_cost"
@@ -61,13 +64,29 @@
         >Поле не може бути пустим</small>
       </div>
 
+      <div class="m-3" *ngIf="saleMode">
+        <label for="pos_sale_cost">Акційна Ціна</label>
+        <input
+          class="form-control m-auto w-50"
+          id="pos_sale_cost"
+          placeholder="Акційна Ціна"
+          type="number"
+          [ngClass]="{'invalid-area': form.get('saleCost').invalid && form.get('saleCost').touched }"
+          formControlName="saleCost"
+        >
+        <small
+          class="text-danger text-sm-left"
+          *ngIf="form.get('cost').invalid && form.get('cost').touched"
+        >Поле не може бути пустим</small>
+      </div>
+
       <div class="m-3 text-center">
+        <label for="pos_cat">Категорія</label>
         <select id="pos_cat"
                 class="form-select m-auto w-50"
                 [ngClass]="{'invalid-area': form.get('categoryId').invalid }"
-                [(ngModel)]="categorySelect"
                 formControlName="categoryId">
-          <option value="Оберіть Категорію" selected="selected">Оберіть Категорію</option>
+          <option value="Оберіть Категорію">Оберіть Категорію</option>
           <option *ngFor="let cat of categories" [ngValue]="cat._id">{{cat.name}}</option>
         </select>
         <small

@@ -25,14 +25,14 @@ export class PositionsFormComponent implements OnInit {
   imagePreview: any
   imagesPreview = []
   form: FormGroup
-  categories$: Observable<Category[]>
+  categories: Category[]
   newMode = true
   newPosName = ''
   error: string
   res: string
   actCat: string
   mainImageId = 0
-  categorySelect: string
+  saleMode: boolean
 
   constructor(private positionsService: PositionsService,
               private categoriesService: CategoriesService,
@@ -41,16 +41,15 @@ export class PositionsFormComponent implements OnInit {
 
   ngOnInit(){
 
-    this.categories$ = this.categoriesService.fetch()
+    this.getCategories()
 
     this.form = new FormGroup({
       name: new FormControl(null, Validators.required),
       description: new FormControl(null, Validators.required),
       cost: new FormControl(null, Validators.required),
+      saleCost: new FormControl(null),
       categoryId: new FormControl(null, Validators.required)
      })
-
-
 
     this.route.params
       .pipe(
@@ -73,12 +72,15 @@ export class PositionsFormComponent implements OnInit {
               name: position.name,
               description: position.description,
               cost: position.cost,
-              categoryId: position.categoryId
+              saleCost: position.saleCost,
+              categoryId: position.category
             })
-            this.categorySelect = position.categoryId
+            console.log(this.form.get('categoryId').value)
+            console.log(position.category)
             this.mainImageId = position.mainImageId
             this.imagesPreview = position.images
             this.images = position.images
+            position.saleCost ? this.saleMode = true : this.saleMode = false
             MaterialService.updateTextInputs()
           }
           this.form.enable()
@@ -87,7 +89,10 @@ export class PositionsFormComponent implements OnInit {
           this.error = error
         }
       )
+  }
 
+  async getCategories() {
+    this.categories = await this.categoriesService.fetch().toPromise()
   }
 
   triggerClick() {
@@ -126,7 +131,8 @@ export class PositionsFormComponent implements OnInit {
         this.form.value.cost,
         this.form.value.categoryId,
         this.images,
-        this.mainImageId
+        this.mainImageId,
+        this.form.value.saleCost,
       )
     } else {
       obs$ = this.positionsService.update(
@@ -136,7 +142,8 @@ export class PositionsFormComponent implements OnInit {
         this.form.value.cost,
         this.form.value.categoryId,
         this.images,
-        this.mainImageId
+        this.mainImageId,
+        this.form.value.saleCost,
       )
     }
     obs$.subscribe(
@@ -186,4 +193,11 @@ export class PositionsFormComponent implements OnInit {
     // console.log(this.imagesPreview)
   }
 
+
+  toggleSaleMode() {
+    this.saleMode = !this.saleMode
+    if (!this.saleMode) {
+      this.form.get('saleCost').setValue(null)
+    }
+  }
 }

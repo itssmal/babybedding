@@ -21,6 +21,9 @@ const orderSchema = new Schema({
             cost: {
                 type: Number
             },
+            saleCost: {
+                type: Number
+            },
             quantity: {
                 type: Number
             },

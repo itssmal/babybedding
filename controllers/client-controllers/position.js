@@ -6,6 +6,13 @@ module.exports.getByCategoryId = async function (req, res) {
         const positions = await Position.find({
             category: req.params.categoryId,
         })
+        positions.sort((a, b) => {
+            if (a.saleCost && !b.saleCost) {
+                return -1
+            } else if(!a.saleCost && b.saleCost) {
+                return 1
+            } else return 0
+        })
         res.status(200).json(positions)
     } catch (e) {
         errorHandler(res, e)

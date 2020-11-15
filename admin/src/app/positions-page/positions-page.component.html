@@ -41,7 +41,7 @@
 </div>
 
 <div>
-  <div class="container" *ngIf="positions$ | async as positions">
+  <div class="container" *ngIf="positions">
     <div class="row" *ngIf="positions.length !== 0; else empty">
     <span
       class="text-danger m-auto"
@@ -50,6 +50,7 @@
     </span>
       <div class="col-md-4" *ngFor="let position of positions | filter:search; let i = index">
           <div class="card card-hover mb-4" style="width: 18rem" [ngClass]="{'card-hover': !canDelete && !canEdit}">
+            <span class="sale-badge" *ngIf="position.saleCost"> - {{100-((position.saleCost * 100)/position.cost) | number:'1.0-0'}}% </span>
             <a [routerLink]="['/admin-positions/edit/', position._id]">
               <img [src]="position.images[position.mainImageId].imageSrc" class="card-img-top" alt="..." style="width: 100%; height: 18rem">
             </a>
@@ -79,7 +80,11 @@
               <hr>
               <h5 class="card-title">{{position.name}}</h5>
               <hr>
-              <h4 class="card-text">{{position.cost}}  ₴</h4>
+              <div class="d-flex flex-row justify-content-center">
+                <h4 class="card-text" [style.color]="position.saleCost ? '#00000073' : ''"
+                    [style.text-decoration]="position.saleCost ? 'line-through' : 'none'">{{position.cost}}  ₴</h4>
+                <h4 class="card-text" *ngIf="position.saleCost" >{{position.saleCost}}  ₴</h4>
+              </div>
             </div>
           </div>
       </div>

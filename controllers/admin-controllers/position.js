@@ -4,6 +4,13 @@ const errorHandler = require('../../utils/errorhandler')
 module.exports.getAll = async function (req, res) {
     try {
         const positions = await Position.find()
+        positions.sort((a, b) => {
+            if (a.saleCost && !b.saleCost) {
+                return -1
+            } else if(!a.saleCost && b.saleCost) {
+                return 1
+            } else return 0
+        })
         res.status(200).json(positions)
     } catch (e) {
         errorHandler(res, e)
@@ -14,6 +21,13 @@ module.exports.getByCategoryId = async function (req, res) {
     try {
         const positions = await Position.find({
             category: req.params.categoryId,
+        })
+        positions.sort((a, b) => {
+            if (a.saleCost && !b.saleCost) {
+                return -1
+            } else if(!a.saleCost && b.saleCost) {
+                return 1
+            } else return 0
         })
         res.status(200).json(positions)
     } catch (e) {
@@ -51,6 +65,9 @@ module.exports.create = async function (req, res) {
             }
             position.images.shift()
         }
+        if (req.body.saleCost) {
+            position.saleCost = req.body.saleCost
+        }
         position.save()
         res.status(201).json(position)
     } catch (e) {
@@ -75,6 +92,7 @@ module.exports.update = async function (req, res) {
         name: req.body.name,
         description: req.body.description,
         cost: req.body.cost,
+        saleCost: req.body.saleCost,
         category: req.body.categoryId,
         images: [
             {
@@ -95,7 +113,6 @@ module.exports.update = async function (req, res) {
         updated.images = JSON.parse(req.body.images)
     }
     try {
-
         const position = await Position.findOneAndUpdate(
             {_id: req.params.id},
             {$set: updated},

@@ -46,7 +46,11 @@
             <hr>
             <h5 class="card-title">{{position.name}}</h5>
             <hr>
-            <h4 class="card-text">{{position.cost}}  ₴</h4>
+            <div class="d-flex flex-row justify-content-center">
+              <h4 class="card-text" [style.color]="position.saleCost ? '#00000073' : ''"
+                  [style.text-decoration]="position.saleCost ? 'line-through' : 'none'">{{position.cost}}  ₴</h4>
+              <h4 class="card-text" *ngIf="position.saleCost" >{{position.saleCost}}  ₴</h4>
+            </div>
           </div>
         </div>
       </a>

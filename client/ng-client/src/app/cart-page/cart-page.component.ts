@@ -1,11 +1,9 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CartService} from "../shared/services/cart.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
 import {OrderPosition, Position} from "../shared/interfaces";
 import {OrderService} from "../shared/services/order.service";
-import {Subscription} from "rxjs";
 import {ToastrService} from "ngx-toastr";
 
 interface SelectItem {
@@ -99,11 +97,10 @@ export class CartPageComponent implements OnInit {
     }
     this.cartService.getDepartments(ref).subscribe(
       (response: any) => {
-        const arr = response.data.map(department => ({
+        this.departments = response.data.map(department => ({
           label: department.Description,
           value: department.Ref
         }));
-        this.departments = arr
       }
     )
   }
@@ -125,6 +122,9 @@ export class CartPageComponent implements OnInit {
         cost: this.positions[b].cost,
         quantity: this.positions[b].quantity
       })
+      if (this.positions[b].saleCost) {
+        orPos.saleCost = this.positions[b].saleCost
+      }
       this.orderPositions.push(orPos)
     }
 

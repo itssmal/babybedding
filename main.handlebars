@@ -173,9 +173,15 @@
                 {{this.position}}
             </td>
 
-            <td>
-                {{this.cost}}
-            </td>
+            {{#if this.saleCost}}
+                <td style="color: #dc3545">
+                    {{this.saleCost}}
+                </td>
+            {{else}}
+                <td>
+                    {{this.cost}}
+                </td>
+            {{/if}}
 
             <td>
                 {{this.quantity}}

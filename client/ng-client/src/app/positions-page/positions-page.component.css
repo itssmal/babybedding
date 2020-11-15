@@ -55,6 +55,10 @@
   font-size: 1.1em;
   transition: 1s ease;
 }
+.card:hover span.old-price {
+  font-size: small;
+  transition: 1s ease;
+}
 .card:hover p {
   font-size: 1.2em;
   font-weight: bold;
@@ -68,4 +72,19 @@
 }
 .m-center {
   margin: 0 auto;
+}
+.old-price {
+  font-size: x-small;
+  text-decoration: line-through;
+  color: #00000073;
+}
+.sale-badge {
+  border-radius: 10%;
+  left: -2%;
+  top: -2%;
+  position: absolute;
+  background-color: #fb4c4c;
+  color: white;
+  width: fit-content;
+  padding: 0.2rem 0.5rem;
 }

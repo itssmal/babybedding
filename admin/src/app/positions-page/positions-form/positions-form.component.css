@@ -66,8 +66,8 @@
 button, a {
   transition: 500ms;
 }
-button:hover, a:hover {
-  transform: scale(1.4, 1.4);
-  transition: 200ms ease;
-}
+/*button:hover, a:hover {*/
+/*  transform: scale(1.4, 1.4);*/
+/*  transition: 200ms ease;*/
+/*}*/
 

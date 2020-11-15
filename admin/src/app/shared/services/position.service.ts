@@ -23,26 +23,17 @@ export class PositionsService {
     return this.http.get<Position>(`/api/admin-position/edit/${id}`)
   }
 
-  create(name: string, description: string, cost: number, categoryId: string, images?: File[], mainImageId?: number): Observable<Position> {
+  create(name: string, description: string, cost: number, categoryId: string, images?: File[], mainImageId?: number, saleCost?: number,): Observable<Position> {
     const formData = new FormData()
-
-    // let files = []
-    // if (images) {
-    //   formData.append('images', images, images.name)
-    //   // for (let i = 0; i < images.length; i++) {
-    //   //   formData.append(`images`, images[i], images[i].name)
-    //   // }
-    // }
-    // if (images) {
-    //   for (let i = 0; i < images.length; i++) {
-    //     formData.append(`images`, images[i], images[i].name)
-    //   }
-    // }
 
     if (images) {
       for (let i = 0; i < images.length; i++) {
         formData.append('images', images[i], images[i].name)
       }
+    }
+    if (saleCost) {
+      // @ts-ignore
+      formData.append('saleCost', saleCost)
     }
     formData.append('name', name)
     formData.append('description', description)
@@ -57,7 +48,7 @@ export class PositionsService {
     return this.http.post<Position>(`/api/admin-position`, formData )
   }
 
-  update(id: string, name: string, description: string, cost: number, categoryId: string, images?, mainImageId?: number ) {
+  update(id: string, name: string, description: string, cost: number, categoryId: string, images?, mainImageId?: number, saleCost?: number ) {
     const formData = new FormData()
 
     console.log(images)
@@ -68,6 +59,10 @@ export class PositionsService {
     } else if (images.length !== 0) {
       const imageArr = JSON.stringify(images)
       formData.append('images', imageArr)
+    }
+    if (saleCost) {
+      // @ts-ignore
+      formData.append('saleCost', saleCost)
     }
 
     formData.append('name', name)

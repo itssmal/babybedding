@@ -59,4 +59,13 @@ a {
   color: #f44336;
   transition: 500ms;
 }
-
+.sale-badge {
+  border-radius: 10%;
+  left: -2%;
+  top: -2%;
+  position: absolute;
+  background-color: #da0000;
+  color: white;
+  width: fit-content;
+  padding: 0.2rem 0.5rem;
+}

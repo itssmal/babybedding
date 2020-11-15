@@ -23,6 +23,7 @@ export interface Position {
   ],
   mainImageId: number,
   cost: number,
+  saleCost?: number,
   categoryId: string,
   quantity?: number,
   _id?: string
@@ -45,6 +46,7 @@ export interface OrderPosition {
   position: string,
   positionId: string,
   cost: number,
+  saleCost?: number,
   quantity: number,
   imgPrev?: string
 }

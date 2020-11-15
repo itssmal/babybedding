@@ -27,13 +27,15 @@
               <h5>{{position.name | titlecase}}</h5>
             </div>
             <div class="col text-center m-auto">
-              <h5>{{position.cost | currency:'UAH'}}</h5>
+              <h5 [class.old-price]="position.saleCost">{{position.cost | currency:'UAH'}}</h5>
+              <h5 class="text-danger" *ngIf="position.saleCost">{{position.saleCost | currency:'UAH'}}</h5>
             </div>
             <div class="col text-center m-auto">
               <input class="form-control" type="number" [value]="position.quantity" max="5" [(ngModel)]="position.quantity" (change)="calcSum(i, $event.target.value)">
             </div>
             <div class="col text-center m-auto position-sum">
-              <h5>{{position.cost * position.quantity | currency:'UAH'}}</h5>
+              <h5 *ngIf="!position.saleCost">{{position.cost * position.quantity | currency:'UAH'}}</h5>
+              <h5 class="text-danger" *ngIf="position.saleCost">{{position.saleCost * position.quantity | currency:'UAH'}}</h5>
             </div>
           </div>
         </div>
@@ -144,7 +146,7 @@
       <ul class="list-unstyled text-left text-secondary mt-3">
         <li *ngFor="let position of positions">
           <span *ngIf="position.quantity !== 0">
-            {{position.name | titlecase}} : {{position.cost  * position.quantity | currency:'UAH'}}
+            {{position.name | titlecase}} : {{(position.saleCost ? position.saleCost : position.cost)  * position.quantity | currency:'UAH'}}
           </span>
         </li>
       </ul>

@@ -12,7 +12,6 @@ import {MaterialService} from "../shared/services/material.service";
 })
 export class PositionsPageComponent implements OnInit {
 
-  positions$: Observable<Position[]>
   positions: Position[]
   canDelete = false
   canEdit = false
@@ -25,7 +24,10 @@ export class PositionsPageComponent implements OnInit {
 
   ngOnInit() {
 
-    this.positions$ = this.positionsService.fetchAll()
+    this.positionsService.fetchAll().subscribe(res => {
+      this.positions = res
+    })
+
 
 
     // this.route.params
@@ -67,8 +69,8 @@ export class PositionsPageComponent implements OnInit {
             window.alert(res.message)
           },
           error1 => window.alert(error1.error.message),
-          () => {
-            this.positions$ = this.positionsService.fetchAll()
+          async () => {
+            this.positions = await this.positionsService.fetchAll().toPromise()
           }
         )
     }

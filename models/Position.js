@@ -25,6 +25,10 @@ const positionSchema = new Schema({
         type: Number,
         required: true
     },
+    saleCost: {
+        type: Number,
+        required: false
+    },
     category: {
         ref: 'categories',
         type: Schema.Types.ObjectId

@@ -3,3 +3,10 @@
     max-height: 23rem;
   }
 }
+
+.old-price {
+  color: #00000034;
+  font-size: 1.3rem;
+  margin-bottom: 0;
+  text-decoration: line-through;
+}

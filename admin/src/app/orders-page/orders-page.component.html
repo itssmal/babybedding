@@ -54,9 +54,10 @@
                 </div>
                 <p class="m-2">Назва Товару: {{position.position}}</p>
                 <p class="m-2">id Товару: {{position.positionId}}</p>
-                <p class="m-2">Ціна: {{position.cost}}</p>
+                <p class="m-2" [style.text-decoration]="position.saleCost ? 'line-through' : 'none'">Ціна: {{position.cost}}</p>
+                <p class="m-2 text-danger" *ngIf="position.saleCost">Акційна ціна: {{position.saleCost}}</p>
                 <p class="m-2">Кількість: {{position.quantity}}</p>
-                <p class="m-2">Сума: {{position.cost * position.quantity}}</p>
+                <p class="m-2">Сума: {{(position.saleCost ? position.saleCost : position.cost ) * position.quantity}}</p>
                 <hr>
               </div>
 

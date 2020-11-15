@@ -22,7 +22,10 @@
               <span>{{position.description}}</span>
             </div>
             <hr class="mb-4">
-            <h2 class="font-weight-bold mb-4">{{position.cost | currency:'UAH'}}</h2>
+            <div class="d-flex flex-column mb-4">
+              <h2 class="font-weight-bold" [class.old-price]="position.saleCost">{{position.cost | currency:'UAH'}}</h2>
+              <h2 class="font-weight-bold text-danger" *ngIf="position.saleCost">{{position.saleCost | currency:'UAH'}}</h2>
+            </div>
             <a type="button" class="text-decoration-none bg-dark rounded px-4 py-2 add-to-cart" (click)="onAdd(position._id)">
             <span class="card-text text-decoration-none text-light">
                 В кошик
