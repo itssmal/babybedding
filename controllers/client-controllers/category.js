@@ -10,4 +10,12 @@ module.exports.getAll = async function (req, res) {
     }
 }
 
+module.exports.getCategoryName = async function (req, res) {
+    try {
+        const category = await Category.findById(req.params.id)
+        res.status(200).json(category.name)
+    } catch (e) {
+        errorHandler(res, e)
+    }
+}
 

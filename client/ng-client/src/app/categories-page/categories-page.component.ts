@@ -23,7 +23,6 @@ export class CategoriesPageComponent implements OnInit {
 
 
   goToPos(id: string, name: string) {
-    this.router.navigate([`/positions/`, id], {state: {catName: name}})
-    history.pushState({catName: name}, '', `/positions/${id}`)
+    this.router.navigate([`/positions/`, id])
   }
 }
