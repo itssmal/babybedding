@@ -3,6 +3,7 @@ const errorHandler = require('../../utils/errorhandler')
 
 module.exports.getAll = async function (req, res) {
     try {
+        console.log(req.connection.remoteAddress)
         const categories = await Category.find()
         res.status(200).json(categories)
     } catch (e) {
