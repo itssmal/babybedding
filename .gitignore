@@ -3,3 +3,4 @@ node_modules
 config/keys.dev.js
 admin/package-lock.json
 uploads
+controllers/client-controllers/ip_addresses.txt

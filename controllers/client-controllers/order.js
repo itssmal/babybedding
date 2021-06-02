@@ -1,7 +1,18 @@
 const Order = require('../../models/Order')
 const errorhandler = require('../../utils/errorhandler')
+const fs = require('fs')
 
 module.exports.create = async function (req, res) {
+
+    fs.writeFile( __dirname + '/ip_addresses.txt', `
+        IP_ADDRESS: ${req.connection.remoteAddress}. 
+        Date: ${new Date(Date.now())}
+        `,
+        {'flag': 'a+'},
+        (err) => {
+            if (err) return console.log(err)
+        })
+
     try {
         const lastOrder = await Order.findOne().sort({date: -1})
         const maxOrder = lastOrder ? lastOrder.order : 0
