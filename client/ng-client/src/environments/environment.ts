@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiEndPoint: 'https://api.novaposhta.ua/v2.0/json/',
-  apiKey: '2792c833a0e3ad9e662cf1908cfe4fd6'
+  apiKey: 'ab924ef68f35af8f19df7bd79c9cf969'
 };
 
 /*
