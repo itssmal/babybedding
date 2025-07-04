@@ -28,3 +28,12 @@ module.exports.getById = async function (req, res) {
     }
 }
 
+module.exports.getBulkByIds = async function (req, res) {
+    try {
+        console.log('req.query', req.query.id)
+        const positions = await Position.find().where('_id').in(req.query.id).exec();
+        res.status(200).json(positions)
+    } catch (e) {
+        errorHandler(res,e)
+    }
+}
