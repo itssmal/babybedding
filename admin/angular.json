@@ -16,7 +16,6 @@
             "outputPath": "dist/admin",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "deployUrl": "./admin/",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
@@ -36,6 +35,7 @@
           },
           "configurations": {
             "production": {
+              "deployUrl": "./admin/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
