@@ -9,7 +9,7 @@ const path = require('path')
 const fs = require("fs")
 const next = require('next');
 
-const nextApp = next({ dev: false, dir: '../../Desktop/babybedding-client-next' });
+const nextApp = next({ dev: false, dir: '../../babybedding-client-next' });
 const handle = nextApp.getRequestHandler();
 
 const categoryRoute = require('./routes/client-routes/category')
