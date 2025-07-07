@@ -33,15 +33,25 @@
       </div>
       <div class="m-3">
         <label for="pos_dscr">Опис позиції</label>
-        <textarea
-          class="form-control m-auto w-50"
-          placeholder="Опис Позиції"
-          id="pos_dscr"
-          rows="3"
-          [ngClass]="{'invalid-area': form.get('description').invalid && form.get('description').touched }"
-          formControlName="description"
-        >
-        </textarea>
+        <div class="NgxEditor__Wrapper">
+          <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+          <ngx-editor
+            formControlName="description"
+            [editor]="editor"
+            [ngModel]="html"
+            [disabled]="false"
+            [placeholder]="'Type here...'"
+          ></ngx-editor>
+        </div>
+<!--        <textarea-->
+<!--          class="form-control m-auto w-50"-->
+<!--          placeholder="Опис Позиції"-->
+<!--          id="pos_dscr"-->
+<!--          rows="3"-->
+<!--          [ngClass]="{'invalid-area': form.get('description').invalid && form.get('description').touched }"-->
+<!--          formControlName="description"-->
+<!--        >-->
+<!--        </textarea>-->
         <small
           class="text-danger text-sm-left"
           *ngIf="form.get('description').invalid && form.get('description').touched"

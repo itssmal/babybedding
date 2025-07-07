@@ -26,6 +26,7 @@ module.exports.create = async function (req, res) {
             area: req.body.area,
             city: req.body.city,
             department: req.body.department,
+            paymentMethod: req.body.paymentMethod,
             notes: req.body.notes,
             done: false
         }).save()

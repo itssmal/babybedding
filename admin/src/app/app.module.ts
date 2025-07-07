@@ -25,6 +25,7 @@ import { CatPositionsComponent } from './categories-page/categories-form/cat-pos
 import { PositionsFormComponent } from './positions-page/positions-form/positions-form.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { EditPageComponent } from './edit-page/edit-page.component';
+import {NgxEditorModule} from "ngx-editor";
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { EditPageComponent } from './edit-page/edit-page.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    NgxEditorModule
   ],
   providers: [
     {

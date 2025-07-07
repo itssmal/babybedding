@@ -53,6 +53,10 @@ const orderSchema = new Schema({
         type: String,
         required: true
     },
+    paymentMethod: {
+        type: String,
+        required: false
+    },
     notes: {
         type: String,
         required: false

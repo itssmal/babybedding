@@ -76,7 +76,7 @@ app.post('/sendMailToUser', function(req, res, next) {
         area: req.body.area,
         city: req.body.city,
         department: req.body.department,
-        notes: req.body.notes
+        notes: req.body.notes || ''
     })
     transporter.sendMail({
         from: 'Baby Bedding order@babybedding.com.ua', // sender address

@@ -1,4 +1,5 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import { Editor } from 'ngx-editor';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {PositionsService} from "../../shared/services/position.service";
 import {CategoriesService} from "../../shared/services/categories.service";
@@ -13,11 +14,12 @@ import {MaterialService} from "../../shared/services/material.service";
   templateUrl: './positions-form.component.html',
   styleUrls: ['./positions-form.component.css']
 })
-export class PositionsFormComponent implements OnInit {
+export class PositionsFormComponent implements OnInit, OnDestroy {
 
   @Input('categoryId') catId: string
   @ViewChild('input') inputRef: ElementRef
 
+  editor: Editor
   position: Position
   image: File
   images: File[]
@@ -33,6 +35,7 @@ export class PositionsFormComponent implements OnInit {
   actCat: string
   mainImageId = 0
   saleMode: boolean
+  html = ''
 
   constructor(private positionsService: PositionsService,
               private categoriesService: CategoriesService,
@@ -40,6 +43,8 @@ export class PositionsFormComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(){
+
+    this.editor = new Editor();
 
     this.getCategories()
 
@@ -89,6 +94,10 @@ export class PositionsFormComponent implements OnInit {
           this.error = error
         }
       )
+  }
+
+  ngOnDestroy(): void {
+    this.editor.destroy();
   }
 
   async getCategories() {
