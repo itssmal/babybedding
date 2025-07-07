@@ -7,6 +7,10 @@ const mailgun = require('nodemailer-mailgun-transport')
 const hbs = require('handlebars')
 const path = require('path')
 const fs = require("fs")
+const next = require('next');
+
+const nextApp = next({ dev: false, dir: '../../Desktop/babybedding-client-next' });
+const handle = nextApp.getRequestHandler();
 
 const categoryRoute = require('./routes/client-routes/category')
 const orderRoute = require('./routes/client-routes/order')
@@ -93,23 +97,20 @@ app.post('/sendMailToUser', function(req, res, next) {
     })
 })
 
-app.use('/admin', express.static('admin/dist/admin'))
-app.use(express.static('client/ng-client/dist/client/browser'))
+nextApp.prepare().then(() => {
+    app.use('/admin', express.static('admin/dist/admin'))
 
-app.get('/admin/*', (req,res) =>
-    res.sendFile(
-        path.resolve(
-            __dirname, 'admin', 'dist', 'admin', 'index.html'
+    app.get('/admin/*', (req,res) =>
+        res.sendFile(
+            path.resolve(
+                __dirname, 'admin', 'dist', 'admin', 'index.html'
+            )
         )
     )
-)
 
-app.get('*', (req, res) =>
-    res.sendFile(
-        path.resolve(
-            __dirname, 'client', 'ng-client', 'dist', 'client', 'browser', 'index.html'
-        )
-    )
-)
+    app.all('*', (req, res) => {
+        return handle(req, res);
+    });
+})
 
 module.exports = app
