@@ -9,8 +9,7 @@ const path = require('path')
 const fs = require("fs")
 const next = require('next');
 
-const nextApp = next({ dev: false, dir: '../../babybedding-client-next' });
-const handle = nextApp.getRequestHandler();
+const mode = process.env.MODE || 'build';
 
 const categoryRoute = require('./routes/client-routes/category')
 const orderRoute = require('./routes/client-routes/order')
@@ -97,7 +96,7 @@ app.post('/sendMailToUser', function(req, res, next) {
     })
 })
 
-nextApp.prepare().then(() => {
+if (mode === 'build') {
     app.use('/admin', express.static('admin/dist/admin'))
 
     app.get('/admin/*', (req,res) =>
@@ -107,10 +106,27 @@ nextApp.prepare().then(() => {
             )
         )
     )
+} else {
+    const nextApp = next({ dev: false, dir: '../../babybedding-client-next' });
+    const handle = nextApp.getRequestHandler();
 
-    app.all('*', (req, res) => {
-        return handle(req, res);
-    });
-})
+    nextApp.prepare().then(() => {
+        app.use('/admin', express.static('admin/dist/admin'))
+
+        app.get('/admin/*', (req,res) =>
+            res.sendFile(
+                path.resolve(
+                    __dirname, 'admin', 'dist', 'admin', 'index.html'
+                )
+            )
+        )
+
+        app.all('*', (req, res) => {
+            return handle(req, res);
+        });
+    })
+}
+
+
 
 module.exports = app
