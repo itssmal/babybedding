@@ -3,13 +3,13 @@ const fs = require("fs")
 const http = require('http');
 const https = require('https');
 
-// const mode = process.env.MODE || 'build';
+const mode = process.env.NODE_ENV || 'development';
 const port = process.env.PORT || 5001
 
-// if (mode === 'build') {
-//     app.listen(port, () => console.log('Server dev is ready'))
-//     return;
-// }
+if (mode === 'development') {
+    app.listen(port, () => console.log('Server dev is ready'))
+    return;
+}
 
 const options = {
     key: fs.readFileSync('/etc/letsencrypt/live/babybedding.store/privkey.pem'),

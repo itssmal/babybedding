@@ -1,9 +1,12 @@
 const Order = require('../../models/Order')
 const errorhandler = require('../../utils/errorhandler')
 const fs = require('fs')
+const mailSender = require("../../services/email-sender");
+const path = require("path");
+
+const emailTemplateSource = fs.readFileSync(path.join(__dirname, '../', '../', "/main.handlebars"), "utf8")
 
 module.exports.create = async function (req, res) {
-
     fs.writeFile( __dirname + '/ip_addresses.txt', `
         IP_ADDRESS: ${req.connection.remoteAddress}. 
         Date: ${new Date(Date.now())}
@@ -30,6 +33,9 @@ module.exports.create = async function (req, res) {
             notes: req.body.notes,
             done: false
         }).save()
+
+        mailSender(emailTemplateSource, req.body, {to: req.body.userEmail})
+
         res.status(200).json('Замовлення створено!')
     } catch (e) {
         errorhandler(res, e)
