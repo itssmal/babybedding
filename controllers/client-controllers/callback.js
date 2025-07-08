@@ -12,8 +12,8 @@ module.exports.requestCall = async function (req, res) {
             phone: req.body.phone,
             message: req.body.message,
         }, {
-            to: 'wwesasha12@gmail.com',
-            subject: 'Запит на зворотній дзвінок'
+            to: 'babybedding.chernivtsi@gmail.com',
+            subject: 'Новий запит на зворотній дзвінок'
         })
 
         return res.status(200).send({success: true})
